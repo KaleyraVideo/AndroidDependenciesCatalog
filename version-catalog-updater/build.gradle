@@ -1,0 +1,60 @@
+import org.gradle.api.internal.provider.TransformBackedProvider
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "com.kaleyra.version_catalog_updater"
+    compileSdk = 33
+
+    defaultConfig {
+        applicationId "com.kaleyra.version_catalog_updater"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    if ((new File("video-sdk-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
+        println("Implementing all libraries defined in videoSdkVersionCatalog...")
+        videoSdkVersionCatalog.properties.keySet().forEach {
+            if (!(videoSdkVersionCatalog.properties[it] instanceof TransformBackedProvider)) return
+            TransformBackedProvider transformBackedProvider = (videoSdkVersionCatalog.properties[it] as TransformBackedProvider)
+            println("implementation \"${transformBackedProvider.get()}\"")
+            implementation(transformBackedProvider.get())
+        }
+    }
+
+    println()
+
+    if ((new File("video-app-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
+        println("Implementing all libraries defined in videoAppVersionCatalog...")
+        videoAppVersionCatalog.properties.keySet().forEach {
+            if (!(videoAppVersionCatalog.properties[it] instanceof TransformBackedProvider)) return
+            TransformBackedProvider transformBackedProvider = (videoAppVersionCatalog.properties[it] as TransformBackedProvider)
+            println("implementation \"${transformBackedProvider.get()}\"")
+            implementation(transformBackedProvider.get())
+        }
+    }
+}
+
