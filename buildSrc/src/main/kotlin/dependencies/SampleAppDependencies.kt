@@ -52,8 +52,6 @@ object SampleAppDependencies : Dependencies {
 
             // bandyer
             val bandyerFlipperSocketIoVersion = Version("bandyerFlipperSocketIoPluginVersion", "1.1.0").apply { add(this) }
-            val bandyerDesignVersion = Version("bandyerDesignVersion", "2.2.4").apply { add(this) }
-
 
             // other
             val stickySwitchVersion = Version("stickySwitchVersion", "0.0.16").apply { add(this) }
@@ -136,7 +134,6 @@ object SampleAppDependencies : Dependencies {
                 add(Library("processPhoenix", "com.jakewharton", "process-phoenix", processPhoenixVersion))
 
                 // kaleyra libraries
-                add(Library("bandyerAndroidDesign", "com.bandyer", "bandyer-android-design", bandyerDesignVersion))
                 add(Library("kaleyraFlipperSocketIo", "com.bandyer.flipper", "flipper-socket-io-plugin", bandyerFlipperSocketIoVersion))
             }
 
