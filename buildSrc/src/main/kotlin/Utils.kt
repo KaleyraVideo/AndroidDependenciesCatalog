@@ -19,7 +19,7 @@ fun getLocalProperty(key: String, file: String = "local.properties"): String {
 }
 
 fun configureMavenRepository(mavenrepositoryArtifact: MavenArtifactRepository) {
-    mavenrepositoryArtifact.url = URI.create("s3://maven-bandyer/releases/")
+    mavenrepositoryArtifact.url = URI.create("s3://maven-bandyer/$publishPath/")
     mavenrepositoryArtifact.credentials(AwsCredentials::class) {
         accessKey = mavenAccessKey
         secretKey = mavenSecretKey

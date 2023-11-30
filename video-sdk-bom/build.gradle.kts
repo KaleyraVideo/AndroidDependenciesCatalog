@@ -1,4 +1,3 @@
-import bom.KaleyraBom
 import model.*
 
 plugins {
@@ -19,10 +18,10 @@ afterEvaluate {
             create<MavenPublication>("kaleyra-bom") {
                 val bomPublicationConfig = BomPublicationConfig(
                     artifactId = "video-sdk-bom",
-                    artifactVersion = bomV4ArtifactVersion,
+                    artifactVersion = kaleyraVideoSdkVersion,
                     mavenPublication = this,
                     libraryGroup = kaleyraLibraryGroup,
-                    libraries = KaleyraBom.libraries)
+                    libraries = bom.KaleyraBom.libraries)
 
                 configureMavenPublication(bomPublicationConfig)
             }

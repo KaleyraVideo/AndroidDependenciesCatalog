@@ -12,55 +12,55 @@ object CommonDependencies: Dependencies {
         versions.apply {
             println("Setting common versions...")
             //androidx versions
-            val androidxAppcompatVersion = Version("androidxAppcompatVersion", "1.3.1").apply { add(this) }
-            val androidxCoreKtxVersion = Version("androidxCoreKtxVersion", "1.7.0").apply { add(this) }
+            val androidxAppcompatVersion = Version("androidxAppcompatVersion", "1.6.1").apply { add(this) }
+            val androidxCoreKtxVersion = Version("androidxCoreKtxVersion", "1.10.1").apply { add(this) }
             val androidxMultidexVersion = Version("androidxMultidexVersion", "2.0.1").apply { add(this) }
-            val androidxRecyclerViewVersion = Version("androidxRecyclerviewVersion", "1.2.1").apply { add(this) }
-            val androidxLifecycleVersion = Version("androidxLifecycleVersion", "2.4.0").apply { add(this) }
-            val androidxFragmentVersion = Version("androidxFragmentVersion", "1.4.0").apply { add(this) }
-            val androidxActivityVersion = Version("androidxActivityVersion", "1.4.0").apply { add(this) }
+            val androidxRecyclerViewVersion = Version("androidxRecyclerviewVersion", "1.3.1").apply { add(this) }
+            val androidxLifecycleVersion = Version("androidxLifecycleVersion", "2.6.2").apply { add(this) }
+            val androidxFragmentVersion = Version("androidxFragmentVersion", "1.5.7").apply { add(this) }
+            val androidxActivityVersion = Version("androidxActivityVersion", "1.7.2").apply { add(this) }
             val androidxConstraintLayoutVersion = Version("androidxConstraintLayoutVersion", "2.1.4").apply { add(this) }
-            val androidxNavigationKtxVersion = Version("androidxNavigationKtxVersion", "2.3.5").apply { add(this) }
+            val androidxNavigationKtxVersion = Version("androidxNavigationKtxVersion", "2.6.0").apply { add(this) }
 
             // jetbrains versions
-            val jetbrainsKotlinVersion = Version("jetbrainsKotlinVersion", "1.5.32").apply { add(this) }
-            val jetbrainsCoroutinesVersion = Version("jetbrainsCoroutinesVersion", "1.5.2").apply { add(this) }
-            val jetbrainsKotlinxSerializationJsonVersion = Version("jetbrainsKotlinxSerializationJsonVersion", "1.3.1").apply { add(this) }
+            val jetbrainsKotlinVersion = Version("jetbrainsKotlinVersion", "1.9.0").apply { add(this) }
+            val jetbrainsCoroutinesVersion = Version("jetbrainsCoroutinesVersion", "1.7.3").apply { add(this) }
+            val jetbrainsKotlinxSerializationJsonVersion = Version("jetbrainsKotlinxSerializationJsonVersion", "1.6.0").apply { add(this) }
 
             // google
-            val googleMaterialVersion = Version("googleMaterialVersion", "1.4.0").apply { add(this) }
-            val googleGsonVersion = Version("googleGsonVersion", "2.8.2").apply { add(this) }
+            val googleMaterialVersion = Version("googleMaterialVersion", "1.7.0").apply { add(this) }
+            val googleGsonVersion = Version("googleGsonVersion", "2.9.0").apply { add(this) }
             val googleDesugarVersion = Version("googleDesugarVersion", "1.1.5").apply { add(this) }
 
             // squareup
-            val squareOkhttpVersion = Version("squareupOkhttpVersion", "4.9.3").apply { add(this) }
+            val squareOkhttpVersion = Version("squareupOkhttpVersion", "4.10.0").apply { add(this) }
             val squareupPicassoVersion = Version("squareupPicassoversion", "2.8").apply { add(this) }
 
             // fastadapter
-            val fastadapterVersion = Version("fastadapterVersion", "5.5.1").apply { add(this) }
+            val fastadapterVersion = Version("fastadapterVersion", "5.7.0").apply { add(this) }
 
             // permission dispatcher
-            val permissionDispatcherVersion = Version("permissionDispatcherVersion", "4.8.0").apply { add(this) }
+            val permissionDispatcherVersion = Version("permissionDispatcherVersion", "4.9.2").apply { add(this) }
 
             // other
             val zoomyVersion = Version("zoomyVersion", "1.0.0").apply { add(this) }
 
             // testing
             val junitVersion = Version("junitVersion", "4.13.2").apply { add(this) }
-            val junitTestExtVersion = Version("junitTestExtVersion", "1.1.3").apply { add(this) }
-            val mockkVersion = Version("mockkVersion", "1.12.2").apply { add(this) }
-            val coroutinesTestVersion = Version("coroutinesTestVersion", "1.5.2").apply { add(this) }
-            val androidxTestEspressoCoreVersion = Version("androidxTestEspressoCoreVersion", "3.4.0").apply { add(this) }
-            val javaassistVersion = Version("javaassistVersion", "3.27.0-GA").apply { add(this) }
+            val junitTestExtVersion = Version("junitTestExtVersion", "1.1.5").apply { add(this) }
+            val mockkVersion = Version("mockkVersion", "1.13.1").apply { add(this) }
+            val coroutinesTestVersion = Version("coroutinesTestVersion", "1.7.3").apply { add(this) }
+            val androidxTestEspressoCoreVersion = Version("androidxTestEspressoCoreVersion", "3.5.1").apply { add(this) }
+            val javaassistVersion = Version("javaassistVersion", "3.29.2-GA").apply { add(this) }
             val androidxTestRunnerVersion = Version("androidxTestRunnerVersion", "1.5.2").apply { add(this) }
-            val awaitilityKotlinVersion = Version("awaitilityKotlinVersion", "4.1.1").apply { add(this) }
+            val awaitilityKotlinVersion = Version("awaitilityKotlinVersion", "3.1.6").apply { add(this) }
 
             // common
-            val gradleVersion = Version("gradleVersion", "7.1.2").apply { add(this) }
+            val gradleVersion = Version("gradleVersion", "8.1.1").apply { add(this) }
 
             // plugins
-            val kotlinxSerializationVersion = Version("kotlinxSerializationVersion", "1.5.0").apply { add(this) }
-            val androidxNavigationSafeArgsVersion = Version("androidxNavigationSafeArgsVersion", "2.3.5").apply { add(this) }
+            val kotlinxSerializationVersion = Version("kotlinxSerializationVersion", "1.9.0").apply { add(this) }
+            val androidxNavigationSafeArgsVersion = Version("androidxNavigationSafeArgsVersion", "2.5.0").apply { add(this) }
 
 
             libraries.apply {
@@ -113,6 +113,7 @@ object CommonDependencies: Dependencies {
                 // testing-libraries
                 add(Library("junit", "junit", "junit", junitVersion))
                 add(Library("mockk", "io.mockk", "mockk", mockkVersion))
+                add(Library("mockkAndroid", "io.mockk", "mockk-android", mockkVersion))
                 add(Library("coroutinesTest", "org.jetbrains.kotlinx", "kotlinx-coroutines-test", coroutinesTestVersion))
                 add(Library("junitTestExt", "androidx.test.ext", "junit", junitTestExtVersion))
                 add(Library("androidxTestRunner", "androidx.test", "runner", androidxTestRunnerVersion))

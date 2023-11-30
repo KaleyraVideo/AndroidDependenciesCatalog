@@ -1,3 +1,4 @@
+import org.gradle.api.internal.catalog.AbstractExternalDependencyFactory
 import org.gradle.api.internal.provider.TransformBackedProvider
 
 plugins {
@@ -7,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.kaleyra.version_catalog_updater"
-    compileSdk = 33
+    compileSdk = videoSdkVersionCatalog.versions.sdkVersion.get().toInteger()
 
     defaultConfig {
         applicationId "com.kaleyra.version_catalog_updater"
-        minSdk 24
-        targetSdk 33
+        minSdk videoSdkVersionCatalog.versions.minSdkVersion.get().toInteger()
+        targetSdk videoSdkVersionCatalog.versions.sdkVersion.get().toInteger()
         versionCode 1
         versionName "1.0"
 
@@ -32,29 +33,51 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/LICENSE-notice.md'
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
 }
 
-dependencies {
+dependencies { dependencyHandler ->
+
+    List<String> skipPackages = Arrays.asList(new String[] { "detekt", "flipper", "awaitility", "test" })
+
     if ((new File("video-sdk-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
         println("Implementing all libraries defined in videoSdkVersionCatalog...")
-        videoSdkVersionCatalog.properties.keySet().forEach {
-            if (!(videoSdkVersionCatalog.properties[it] instanceof TransformBackedProvider)) return
-            TransformBackedProvider transformBackedProvider = (videoSdkVersionCatalog.properties[it] as TransformBackedProvider)
-            println("implementation \"${transformBackedProvider.get()}\"")
-            implementation(transformBackedProvider.get())
-        }
+        implementAll(dependencyHandler, videoSdkVersionCatalog, skipPackages)
     }
 
     println()
 
     if ((new File("video-app-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
         println("Implementing all libraries defined in videoAppVersionCatalog...")
-        videoAppVersionCatalog.properties.keySet().forEach {
-            if (!(videoAppVersionCatalog.properties[it] instanceof TransformBackedProvider)) return
-            TransformBackedProvider transformBackedProvider = (videoAppVersionCatalog.properties[it] as TransformBackedProvider)
-            println("implementation \"${transformBackedProvider.get()}\"")
-            implementation(transformBackedProvider.get())
-        }
+        implementAll(dependencyHandler, videoAppVersionCatalog, skipPackages)
     }
 }
 
+private void implementAll(DependencyHandler dependencyHandler, AbstractExternalDependencyFactory factory, List<String> skipList) {
+    factory.properties.keySet().forEach {
+        if (!(factory.properties[it] instanceof TransformBackedProvider)) return
+        TransformBackedProvider transformBackedProvider = (factory.properties[it] as TransformBackedProvider)
+        String dependency = transformBackedProvider.get()
+        boolean skip = false
+        skipList.forEach {if (dependency.contains(it)) skip = true }
+        if (skip) return
+        println("implementation \"${dependency}\"")
+        if (dependency.contains("compose-bom")) dependencyHandler.implementation(dependencyHandler.platform(dependency))
+        else dependencyHandler.implementation(dependency) {
+            exclude group: 'com.intellij', module: 'annotations'
+            exclude group: 'org.jetbrains', module: 'annotations'
+        }
+    }
+}

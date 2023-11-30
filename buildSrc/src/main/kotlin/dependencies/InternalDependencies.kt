@@ -17,63 +17,65 @@ object InternalDependencies : Dependencies {
             addAll(CommonDependencies.versions)
 
             // androidx versions
+            val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2023.06.01").apply { add(this) }
+            val androidXActivityComposeVersion = Version("androidXActivityComposeVersion", "1.5.1").apply { add(this) }
+            val androidxComposeConstraintLayoutVersion = Version("androidxComposeConstraintLayoutVersion", "1.0.1").apply { add(this) }
+            val androidxComposeUiTestJunit4Version = Version("androidxComposeUiTestJunit4Version", "1.4.3").apply { add(this) }
             val androidxStartupRuntimeVersion = Version("androidxStartupRuntimeversion", "1.1.1").apply { add(this) }
-            val androidxDatabindingCommonVersion = Version("androidxDatabindingCommonVersion", "7.0.3").apply { add(this) }
+            val androidxDatabindingCommonVersion = Version("androidxDatabindingCommonVersion", "8.1.1").apply { add(this) }
             val androidxVectorDrawableVersion = Version("androidxVectorDrawableVersion", "1.1.0").apply { add(this) }
-            val androidxRoomVersion = Version("androidxRoomVersion", "2.4.0-beta02").apply { add(this) }
-            val androidxLifecycleVersion = Version("androidxLifecycleVersion", "2.4.0").apply { add(this) }
-            val androidxArchCoreTestingVersion = Version("androidxArchCoreTestingVersion", "2.1.0").apply { add(this) }
-            val androidxActivityComposeVersion = Version("androidxActivityComposeVersion", "1.5.1").apply { add(this) }
-            val androidxComposeFoundationVersion = Version("androidxComposeFoundationVersion", "1.2.1").apply { add(this) }
-            val androidxLifecycleViewmodelComposeVersion = Version("androidxLifecycleViewModelComposeVersion", "2.5.1").apply { add(this) }
-            val androidxComposeUiToolingVersion = Version("androidxComposeUiToolingVersion", "1.2.1").apply { add(this) }
-            val androidxComposeUiTestManifestVersion = Version("androidxComposeUiTestManifestVersion", "1.2.1").apply { add(this) }
-            val androidxComposeMaterialVersion = Version("androidxComposeMaterialVersion", "1.2.1").apply { add(this) }
-            val androidxComposeUiToolingPreviewVersion = Version("androidxComposeUiToolingPreviewVersion", "1.2.1").apply { add(this) }
+            val androidxRoomVersion = Version("androidxRoomVersion", "2.5.2").apply { add(this) }
+            val androidxLifecycleVersion = Version("androidxLifecycleVersion", "2.6.2").apply { add(this) }
+            val androidxArchCoreTestingVersion = Version("androidxArchCoreTestingVersion", "2.2.0").apply { add(this) }
+            val androidxComposeUiToolingVersion = Version("androidxComposeUiToolingVersion", "1.4.3").apply { add(this) }
+            val androidxComposeUiTestManifestVersion = Version("androidxComposeUiTestManifestVersion", "1.4.3").apply { add(this) }
 
             // jetbrains versions
-            val jetbrainsDokkaVersion = Version("jetbrainsDokkaVersion", "1.6.21").apply { add(this) }
-            val jetbrainsKotlinxDateTimeVersion = Version("jetbrainsKotlinxDateTimeVersion", "0.3.1").apply { add(this) }
+            val jetbrainsDokkaVersion = Version("jetbrainsDokkaVersion", "1.9.0").apply { add(this) }
+            val jetbrainsKotlinxDateTimeVersion = Version("jetbrainsKotlinxDateTimeVersion", "0.4.1").apply { add(this) }
 
             // google
             val googleSegmentationSelfieVersion = Version("googleSegmentationSelfieVersion", "16.0.0-beta4").apply { add(this) }
             val googleFlexboxVersion = Version("googleFlexboxVersion", "3.0.0").apply { add(this) }
-            val googleComposeThemeAdapterVersion = Version("googleComposeThemeAdapterVersion", "1.1.13").apply { add(this) }
-            val googleAccompanistSystemUiControllerVersion = Version("googleAccompanistSystemUiControllerVersion", "0.25.1").apply { add(this) }
+            val googleAccompanistVersion = Version("googleAccompanistVersion", "0.27.0").apply { add(this) }
 
             // json
-            val jsonVersion = Version("jsonVersion", "20180813").apply { add(this) }
+            val jsonVersion = Version("jsonVersion", "20230618").apply { add(this) }
 
             // apache
-            val apacheCommonsIoVersion = Version("apacheCommonsIoVersion", "2.6").apply { add(this) }
+            val apacheCommonsIoVersion = Version("apacheCommonsIoVersion", "2.13.0").apply { add(this) }
 
             // other
-            val detektFormattingVersion = Version("detektFormattingVersion", "1.21.0").apply { add(this) }
+            val detektFormattingVersion = Version("detektFormattingVersion", "1.23.1").apply { add(this) }
             val silicompressorVersion = Version("silicompressorVersion", "2.2.4").apply { add(this) }
-            val coilComposeVersion = Version("coilComposeVersion", "2.1.0").apply { add(this) }
+            val coilComposeVersion = Version("coilComposeVersion", "2.3.0").apply { add(this) }
 
             // testing
             val testFlowObserverVersion = Version("testFlowObserverVersion", "1.6.2").apply { add(this) }
-            val androidxTestCoreVersion = Version("androidxTestCoreVersion", "1.3.0").apply { add(this) }
+            val androidxTestCoreVersion = Version("androidxTestCoreVersion", "1.5.0").apply { add(this) }
             val okhttpMockWebServerVersion = Version("okhttpMockWebServerVersion", "4.9.3").apply { add(this) }
             val roboelectricVersion = Version("roboelectricVersion", "4.9").apply { add(this) }
             val androidxTestRulesVersion = Version("androidxTestRulesVersion", "1.5.0").apply { add(this) }
             val androidxTestEspressoIntentsVersion = Version("androidxTestEspressoIntentsVersion", "3.4.0").apply { add(this) }
+            val androidxTestUiAutomatorVersion = Version("androidxTestUiAutomatorVersion", "2.2.0").apply { add(this) }
+            val androidxBenchmarkMacroJunit4Version = Version("androidxBenchmarkMacroJunit4Version", "1.1.0").apply { add(this) }
 
             // common
-            val sdkVersion = Version("sdkVersion", "31").apply { add(this) }
+            val sdkVersion = Version("sdkVersion", "33").apply { add(this) }
             val minSdkVersion = Version("minSdkVersion", "21").apply { add(this) }
-            val toolsVersion = Version("toolsVersion", "31.0.0").apply { add(this) }
+            val toolsVersion = Version("toolsVersion", "33.0.1").apply { add(this) }
             val proguardVersion = Version("proguardVersion", "7.3.1").apply { add(this) }
-            val ktlintVersion = Version("ktlintVersion", "0.45.2").apply { add(this) }
+            val ktlintVersion = Version("ktlintVersion", "0.50.0").apply { add(this) }
+            val kotlinCompilerExtensionVersion = Version("kotlinCompilerExtensionVersion", "1.5.2").apply { add(this) }
 
             // plugins
             val licenseReportVersion = Version("licenseReportVersion", "2.5").apply { add(this) }
-            val spotlessVersion = Version("spotlessVersion", "6.13.0").apply { add(this) }
-            val detektVersion = Version("detektVersion", "1.21.0").apply { add(this) }
-            val jacocoVersion = Version("jacocoVersion", "0.1.5").apply { add(this) }
+            val spotlessVersion = Version("spotlessVersion", "6.21.0").apply { add(this) }
+            val detektVersion = Version("detektVersion", "1.23.1").apply { add(this) }
+            val jacocoVersion = Version("jacocoVersion", "0.2.1-SNAPSHOT").apply { add(this) }
             val sonarqubeVersion = Version("sonarqubeVersion", "3.5.0.2730").apply { add(this) }
-            val gradleDownloadTaskVersion = Version("gradleDownloadTaskVersion", "4.1.1").apply { add(this) }
+            val gradleDownloadTaskVersion = Version("gradleDownloadTaskVersion", "5.5.0").apply { add(this) }
+            val googleDevToolsKspVersion = Version("googleDevToolsKspVersion", "1.9.0-1.0.13").apply { add(this) }
 
             libraries.apply {
                 println("Setting internal libraries...")
@@ -81,17 +83,15 @@ object InternalDependencies : Dependencies {
                 addAll(CommonDependencies.libraries)
 
                 // new-compose
+                add(Library("androidxComposeBom", "androidx.compose", "compose-bom", androidxComposeBomVersion))
+                add(Library("androidXActivityCompose", "androidx.activity", "activity-compose", androidXActivityComposeVersion))
                 add(Library("androidxLifecycleProcess", "androidx.lifecycle", "lifecycle-process", androidxLifecycleVersion))
-                add(Library("androidxActivityCompose", "androidx.activity", "activity-compose", androidxActivityComposeVersion))
-                add(Library("androidxComposeFoundation", "androidx.compose.foundation", "foundation", androidxComposeFoundationVersion))
-                add(Library("androidxComposeMaterial", "androidx.compose.material", "material", androidxComposeMaterialVersion))
-                add(Library("androidxComposeRuntime", "androidx.compose.runtime", "runtime", androidxComposeFoundationVersion))
-                add(Library("androidxLifecycleViewmodelCompose", "androidx.lifecycle", "lifecycle-viewmodel-compose", androidxLifecycleViewmodelComposeVersion))
-                add(Library("materialComposeThemedapter", "com.google.android.material", "compose-theme-adapter", googleComposeThemeAdapterVersion))
                 add(Library("androidxTestEspressoIntents", "androidx.test.espresso", "espresso-intents", androidxTestEspressoIntentsVersion))
                 add(Library("androidxComposeUiTooling", "androidx.compose.ui", "ui-tooling", androidxComposeUiToolingVersion))
                 add(Library("androidxComposeUiTestManifest", "androidx.compose.ui", "ui-test-manifest", androidxComposeUiTestManifestVersion))
-                add(Library("androidxComposeUiToolingPreview", "androidx.compose.ui", "ui-tooling-preview", androidxComposeUiToolingPreviewVersion))
+                add(Library("androidxComposeUiTestJunit4", "androidx.compose.ui", "ui-test-junit4", androidxComposeUiTestJunit4Version))
+                add(Library("androidxComposeConstraintLayout", "androidx.constraintlayout", "constraintlayout-compose", androidxComposeConstraintLayoutVersion))
+
 
                 // androidx
                 add(Library("androidxStartupRuntime", "androidx.startup", "startup-runtime", androidxStartupRuntimeVersion))
@@ -111,7 +111,8 @@ object InternalDependencies : Dependencies {
                 // google
                 add(Library("mlKitSegmentationSelfie", "com.google.mlkit", "segmentation-selfie", googleSegmentationSelfieVersion))
                 add(Library("flexbox", "com.google.android.flexbox", "flexbox", googleFlexboxVersion))
-                add(Library("googleAccompanistSystemUiController", "com.google.accompanist", "accompanist-systemuicontroller", googleAccompanistSystemUiControllerVersion))
+                add(Library("googleAccompanistSystemUiController", "com.google.accompanist", "accompanist-systemuicontroller", googleAccompanistVersion))
+                add(Library("googleAccompanistPermission", "com.google.accompanist", "accompanist-permissions", googleAccompanistVersion))
 
                 // apache
                 add(Library("apacheCommonsIo", "commons-io", "commons-io", apacheCommonsIoVersion))
@@ -131,7 +132,10 @@ object InternalDependencies : Dependencies {
                 add(Library("okhttpMockWebServer", "com.squareup.okhttp3", "mockwebserver", okhttpMockWebServerVersion))
                 add(Library("roboelectric", "org.robolectric", "robolectric", roboelectricVersion))
                 add(Library("androidxTestRules", "androidx.test", "rules", androidxTestRulesVersion))
+                add(Library("androidxTestUiAutomator", "androidx.test.uiautomator", "uiautomator", androidxTestUiAutomatorVersion))
+                add(Library("androidxBenchmarkMacroJunit4", "androidx.benchmark", "benchmark-macro-junit4", androidxBenchmarkMacroJunit4Version))
             }
+
 
             plugins.apply {
                 println("Setting internal plugins...")
@@ -142,9 +146,10 @@ object InternalDependencies : Dependencies {
                 add(Plugin("dokka", "org.jetbrains.dokka", jetbrainsDokkaVersion))
                 add(Plugin("spotless", "com.diffplug.spotless", spotlessVersion))
                 add(Plugin("detekt", "io.gitlab.arturbosch.detekt", detektVersion))
-                add(Plugin("jacoco", "com.dicedmelon.gradle:jacoco-android", jacocoVersion))
+                add(Plugin("jacoco", "com.mxalbert.gradle:jacoco-android", jacocoVersion))
                 add(Plugin("sonarqube", "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", sonarqubeVersion))
-                add(Plugin("gradleDownloadTask", "de.undercouch:gradle-download-task", gradleDownloadTaskVersion))
+                add(Plugin("gradleDownloadTask", "de.undercouch.download", gradleDownloadTaskVersion))
+                add(Plugin("googleDevToolsKsp", "com.google.devtools.ksp", googleDevToolsKspVersion))
             }
 
             println("Version catalog for internal dependencies is ready...")

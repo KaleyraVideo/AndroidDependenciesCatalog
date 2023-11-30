@@ -4,7 +4,6 @@ include(":kaleyra-libs-version-catalog")
 include(":video-sdk-version-catalog")
 include(":video-app-version-catalog")
 include(":video-sdk-bom")
-include(":bandyer-android-sdk-bom")
 include(":version-catalog-updater")
 
 pluginManagement {

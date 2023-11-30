@@ -1,11 +1,8 @@
-val publishPath = "releases"
-
 val kaleyraLibsVersionCatalogPackages = mapOf<String, String>(
     "com.kaleyra.kaleyra-libs-version-catalog" to releaseArtifactVersion,
     "com.kaleyra.video-sdk-version-catalog" to releaseArtifactVersion,
     "com.kaleyra.video-app-version-catalog" to releaseArtifactVersion,
-    "com.bandyer.bandyer-android-sdk-bom" to bomV3ArtifactVersion,
-    "com.kaleyra.video-sdk-bom" to bomV4ArtifactVersion
+    "com.kaleyra.video-sdk-bom" to kaleyraVideoSdkVersion
 )
 
 tasks.register<Exec>("invalidateCache") {

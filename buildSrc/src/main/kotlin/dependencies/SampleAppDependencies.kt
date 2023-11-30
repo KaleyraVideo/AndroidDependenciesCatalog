@@ -1,5 +1,6 @@
 package dependencies
 
+import model.Dependencies
 import model.Library
 import model.Plugin
 import model.Version
@@ -19,30 +20,32 @@ object SampleAppDependencies : Dependencies {
             addAll(CommonDependencies.versions)
 
             // androidversions
-            val androidxGridLayoutVersion = Version("androidxGridLayoutVersion", "1.0.0").apply { add(this) }
-            val androidxSwipeRefreshLayoutVersion = Version("androidxSwipeRefreshLayoutVersion", "1.1.0").apply { add(this) }
+            val androidxGridLayoutVersion = Version("androidxGridLayoutVersion", "1.1.0-beta01").apply { add(this) }
+            val androidxRecyclerViewSelectionVersion = Version("androidxRecyclerViewSelectionVersion", "1.1.0").apply { add(this) }
+            val androidxCoordinatorLayoutVersion = Version("androidxCoordinatorLayoutVersion", "1.2.0").apply { add(this) }
+            val androidxSwipeRefreshLayoutVersion = Version("androidxSwipeRefreshLayoutVersion", "1.2.0-alpha01").apply { add(this) }
             val androidxBiometricKtxVersion = Version("androidxBiometrixKtxVersion", "1.2.0-alpha05").apply { add(this) }
-            val androidxWorkRuntimeVersion = Version("androidxWorkRuntimeVersion", "2.7.1").apply { add(this) }
+            val androidxWorkRuntimeVersion = Version("androidxWorkRuntimeVersion", "2.8.1").apply { add(this) }
 
             // firebase
-            val firebaseCrashlyticsNdkVersion = Version("firebaseCrashLyticsNdkversion", "18.2.12").apply { add(this) }
-            val firebaseMessagingVersion = Version("firebaseMessagingVersion", "23.0.7").apply { add(this) }
+            val firebaseCrashlyticsNdkVersion = Version("firebaseCrashLyticsNdkversion", "18.4.1").apply { add(this) }
+            val firebaseMessagingVersion = Version("firebaseMessagingVersion", "23.2.1").apply { add(this) }
             val firebaseIidVersion = Version("firebaseIidVersion", "21.1.0").apply { add(this) }
 
             // squareup
-            val squareupRetrofitVersion = Version("squareupRetrofitVersion", "2.6.2").apply { add(this) }
+            val squareupRetrofitVersion = Version("squareupRetrofitVersion", "2.9.0").apply { add(this) }
             val squareupLeakCanaryVersion = Version("squareupLeakCanaryVersion", "2.8.1").apply { add(this) }
 
             // ktor
-            val ktorVersion = Version("ktorVersion", "2.0.3").apply { add(this) }
+            val ktorVersion = Version("ktorVersion", "2.3.4").apply { add(this) }
 
             // facebook
             val facebookFlipperVersion = Version("facebookFlipperVersion", "0.137.0").apply { add(this) }
-            val facebookSoloaderVersion = Version("facebookSoloaderVersion", "0.10.3").apply { add(this) }
-            val facebookStethoVersion = Version("facebookStethoVersion", "1.5.1").apply { add(this) }
+            val facebookSoloaderVersion = Version("facebookSoloaderVersion", "0.10.5").apply { add(this) }
+            val facebookStethoVersion = Version("facebookStethoVersion", "1.6.0").apply { add(this) }
 
             // pushy
-            val pushyVersion = Version("pushyVersion", "1.0.90").apply { add(this) }
+            val pushyVersion = Version("pushyVersion", "1.0.96").apply { add(this) }
 
             // huawei
             val huaweiPushVersion = Version("huaweiPushVersion", "6.9.0.300").apply { add(this) }
@@ -55,24 +58,24 @@ object SampleAppDependencies : Dependencies {
             // other
             val stickySwitchVersion = Version("stickySwitchVersion", "0.0.16").apply { add(this) }
             val jsonViewerVersion = Version("jsonViewerVersion", "V1.0.6").apply { add(this) }
-            val imageZoomVersion = Version("imageZoomVersion", "1.1.1").apply { add(this) }
+            val imageZoomVersion = Version("imageZoomVersion", "2.0.0").apply { add(this) }
             val recyclerAdapterVersion = Version("recyclerAdapterVersion", "4.1.1").apply { add(this) }
             val cameraViewVersion = Version("cameraViewVersion", "2.7.2").apply { add(this) }
-            val zxingVersion = Version("zxingVersion", "3.3.3").apply { add(this) }
-            val materialExpansionPanel = Version("materialExpansionPanel", "2.1.6").apply { add(this) }
+            val zxingVersion = Version("zxingVersion", "3.5.2").apply { add(this) }
+            val materialExpansionPanel = Version("materialExpansionPanel", "2.1.7").apply { add(this) }
             val processPhoenixVersion = Version("processPhoenixVersion", "2.1.2").apply { add(this) }
 
             // common
             val sampleAppMinSdkVersion = Version("sampleAppMinSdkVersion", "21").apply { add(this) }
             val sampleAppSdkVersion = Version("sampleAppSdkVersion", "33").apply { add(this) }
-            val sampleAppToolsVersion = Version("sampleAppToolsVersion", "33.0.0").apply { add(this) }
+            val sampleAppToolsVersion = Version("sampleAppToolsVersion", "33.0.1").apply { add(this) }
 
             // plugins
             val gmsGoogleVersion = Version("gmsGoogleVersion", "4.3.15").apply { add(this) }
-            val crashlyticsPluginVersion = Version("crashlyticsPluginVersion", "2.9.1").apply { add(this) }
+            val crashlyticsPluginVersion = Version("crashlyticsPluginVersion", "2.9.9").apply { add(this) }
             val firebaseAppDistriutionVersion = Version("firebaseAppDistributionVersion", "3.0.3").apply { add(this) }
             val huaweiAgConnectVersion = Version("huaweiAgConnectVersion", "1.6.5.300").apply { add(this) }
-            val huaweiPublishVersion = Version("huaweiPublishVersion", "1.3.3").apply { add(this) }
+            val huaweiPublishVersion = Version("huaweiPublishVersion", "1.4.0").apply { add(this) }
             val tripletPlayPublishVersion = Version("tripletPlayPublishVersion", "3.8.3").apply { add(this) }
 
             libraries.apply {
@@ -81,9 +84,12 @@ object SampleAppDependencies : Dependencies {
                 addAll(CommonDependencies.libraries)
 
                 // androidx
+                add(Library("androidxRecyclerviewSelection", "androidx.recyclerview", "recyclerview-selection", androidxRecyclerViewSelectionVersion))
                 add(Library("androidxGridLayout", "androidx.gridlayout", "gridlayout", androidxGridLayoutVersion))
+                add(Library("androidxCoordinatorLayout", "androidx.coordinatorlayout", "coordinatorlayout", androidxCoordinatorLayoutVersion))
                 add(Library("androidxSwipeRefreshLayout", "androidx.swiperefreshlayout", "swiperefreshlayout", androidxSwipeRefreshLayoutVersion))
                 add(Library("androidxWorkRuntime", "androidx.work", "work-runtime", androidxWorkRuntimeVersion))
+                add(Library("androidxWorkRuntimeKtx", "androidx.work", "work-runtime-ktx", androidxWorkRuntimeVersion))
                 add(Library("androidxBiometricKtx", "androidx.biometric", "biometric-ktx", androidxBiometricKtxVersion))
                 add(Library("androidxBiometric", "androidx.biometric", "biometric", androidxBiometricKtxVersion))
 
