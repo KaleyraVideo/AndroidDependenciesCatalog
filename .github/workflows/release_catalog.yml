@@ -1,4 +1,4 @@
-name: Release Bom
+name: Release Catalog
 
 on:
   workflow_dispatch:
