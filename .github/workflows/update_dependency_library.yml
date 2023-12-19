@@ -1,4 +1,4 @@
-name: Release Bom
+name: Update dependency library
 
 on:
   workflow_dispatch:
