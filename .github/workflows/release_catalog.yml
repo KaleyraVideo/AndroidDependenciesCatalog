@@ -35,7 +35,7 @@ jobs:
         run: chmod +x gradlew
       - name: Build module
         run: ./gradlew clean build
-  update_bom_version:
+  update_catalog_version:
     runs-on: ubuntu-latest
     needs: clean_build
     steps:
@@ -48,15 +48,15 @@ jobs:
           cache: gradle
       - name: add python dependecy
         run: python3 -m pip install semver
-      - name: Update bom version
+      - name: Update catalog version
         if: "${{ github.event.inputs.release_version != '' }}"
-        run: ./gradlew updateBom -PnewBomVersion=${{ github.event.inputs.release_version }}
-      - name: Update bom version
+        run: ./gradlew updateCatalog -PnewCatalogVersion=${{ github.event.inputs.release_version }}
+      - name: Update catalog version
         if: "${{ github.event.inputs.specific_release_version != '' }}"
-        run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version }}
-  release_bom_version:
+        run: ./gradlew updateCatalog -PnewCatalogVersion=${{github.event.inputs.specific_release_version }}
+  release_catalog_version:
     runs-on: ubuntu-latest
-    needs: update_bom_version
+    needs: update_catalog_version
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 17
@@ -65,5 +65,5 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: gradle
-      - name: Release new bom version
-        run: ./gradlew publishUploadBom -PdryRun=false
+      - name: Release new catalog version
+        run: ./gradlew publishUploadCatalog -PdryRun=false
