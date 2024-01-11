@@ -1,7 +1,8 @@
 import semver
 import fileinput
 import argparse
-import subprocess
+import sys
+import os
 
 argParser = argparse.ArgumentParser()
 argParser.add_argument("-cv", "--current_version", help="Current version", required=True)
@@ -21,18 +22,18 @@ def new_version(current_version, release_version):
         new_version = semver.Version.parse(release_version)
     return str(new_version)
 
+def set_output(name, value):
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+        print(f'{name}={value}', file=fh)
+
 try:
     current_version = args.current_version
     release_version = args.next_version
     new_version = new_version(current_version, release_version)
     # update
     print("Update Kaleyra Video SDK BOM from ",current_version," to ", new_version)
-
     replace("../buildSrc/src/main/kotlin/Consts.kt", current_version, new_version)
     print("Updated!")
-    print("Add changes to git")
-    subprocess.run(["git", "add", "-A"])
-    subprocess.run(["git", "commit","-m", f"Update bom version to {new_version}"])
-    subprocess.run(["git", "push"])
+    set_output("TAG", "v"+new_version)
 except Exception as error:
-    print("Did not update version", error)
+    sys.exit("Did not update version" + error)
