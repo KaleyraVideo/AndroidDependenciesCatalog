@@ -35,8 +35,8 @@ tasks.register<Exec>("updateKaleyraLibVersion") {
 
 tasks.register("publishUploadBom") {
     if (project.name != "video-sdk-bom") return@register
-    val publishTask = if (dryRun) "publishToMavenLocal" else "publish"
-    println("publishing ${project.name} to ${if (dryRun) "local" else "remote"} maven repository ...")
+    val publishTask = if (dryRun.toBoolean()) "publishToMavenLocal" else "publish"
+    println("publishing ${project.name} to ${if (dryRun.toBoolean()) "local" else "remote"} maven repository ...")
     dependsOn(publishTask)
     dependsOn("invalidateCache")
     tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
@@ -44,8 +44,8 @@ tasks.register("publishUploadBom") {
 
 tasks.register("publishUploadCatalog") {
     if (!project.name.contains("catalog")) return@register
-    val publishTask = if (dryRun) "publishToMavenLocal" else "publish"
-    println("publishing ${project.name} to ${if (dryRun) "local" else "remote"} maven repository ...")
+    val publishTask = if (dryRun.toBoolean()) "publishToMavenLocal" else "publish"
+    println("publishing ${project.name} to ${if (dryRun.toBoolean()) "local" else "remote"} maven repository ...")
     dependsOn(publishTask)
     dependsOn("invalidateCache")
     tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)

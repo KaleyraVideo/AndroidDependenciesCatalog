@@ -55,17 +55,18 @@ jobs:
           cache: gradle
       - name: add python dependency
         run:  python3 -m pip install semver
-      - name: Update bom version
+      - name: Update bom semver version
         if: "${{ github.event.inputs.release_version != '' }}"
         run: ./gradlew updateBom -PnewBomVersion=${{ github.event.inputs.release_version }}
-      - name: Update bom version
-        id: update_bom_version
+      - name: Update bom specific version
         if: "${{ github.event.inputs.specific_release_version != '' }}"
         run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version }}
+      - name: Print new version
+        run: echo ${{ outputs.TAG }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update bom version
-          tagging_message: ${{ steps.update_bom_version.outputs.TAG }}
+          tagging_message: ${{ outputs.TAG }}
 
   release_bom_version:
     runs-on: ubuntu-latest
