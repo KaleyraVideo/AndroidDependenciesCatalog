@@ -52,12 +52,13 @@ jobs:
         if: "${{ github.event.inputs.release_version != '' }}"
         run: ./gradlew updateBom -PnewBomVersion=${{ github.event.inputs.release_version }}
       - name: Update bom version
+        id: update_bom_version
         if: "${{ github.event.inputs.specific_release_version != '' }}"
         run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update bom version
-          tagging_message: ${{ env.TAG }}
+          tagging_message: ${{ steps.update_bom_version.outputs.TAG }}
 
   release_bom_version:
     runs-on: ubuntu-latest
@@ -70,5 +71,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: gradle
+      - name: Add secrets to local.properties
+        run: echo -e "maven.accessKey=${{ secret.MAVEN_ACCESSKEY }}\nmaven.distributionId=${{secret.MAVEN_DISTRIBUTIONID}}\nmaven.secretKey=${{secret.MAVEN_SECRETKEY}}" >> local.properties
       - name: Release new bom version
         run: ./gradlew publishUploadBom -PdryRun=false
