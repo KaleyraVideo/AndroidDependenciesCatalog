@@ -2,7 +2,7 @@ val newBomVersion: String by project
 val newCatalogVersion: String by project
 val kaleyraLibName: String by project
 val kaleyraLibVersion: String by project
-val dryRun: Boolean by project
+val dryRun: String by project
 
 val kaleyraLibsVersionCatalogPackages = mapOf<String, String>(
     "com.kaleyra.kaleyra-libs-version-catalog" to releaseArtifactVersion,
