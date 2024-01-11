@@ -14,6 +14,13 @@ on:
         - patch
         - minor
         - major
+    secrets:
+      MAVEN_ACCESSKEY:
+        required: true
+      MAVEN_SECRETKEY:
+        required: true
+      MAVEN_DISTRIBUTIONID:
+        required: true
       
 jobs:
   clean_build:
@@ -71,7 +78,12 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: gradle
-      - name: Add secrets to local.properties
-        run: echo -e "maven.accessKey=${{ secret.MAVEN_ACCESSKEY }}\nmaven.distributionId=${{secret.MAVEN_DISTRIBUTIONID}}\nmaven.secretKey=${{secret.MAVEN_SECRETKEY}}" >> local.properties
+      - name: Update Maven credentials
+        env:
+            MAVEN_ACCESSKEY: ${{ secrets.MAVEN_ACCESSKEY }}
+            MAVEN_SECRETKEY: ${{ secrets.MAVEN_SECRETKEY }}
+            MAVEN_DISTRIBUTIONID: ${{ secrets.MAVEN_DISTRIBUTIONID }}
+        run:
+            echo -e "maven.accessKey=$MAVEN_ACCESSKEY\nmaven.secretKey=$MAVEN_SECRETKEY\nmaven.distributionId=$MAVEN_DISTRIBUTIONID" >> ./local.properties
       - name: Release new bom version
         run: ./gradlew publishUploadBom -PdryRun=false
