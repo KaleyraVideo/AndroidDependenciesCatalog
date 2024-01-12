@@ -1,6 +1,5 @@
 import dependencies.SampleAppDependencies
 import model.*
-import nl.littlerobots.vcu.plugin.versionCatalogUpdate
 
 plugins {
     `maven-publish`
@@ -32,7 +31,7 @@ afterEvaluate {
             create<MavenPublication>("video-app-version-catalog") {
                 val versionCatalogPublicationConfig = VersionCatalogPublicationConfig(
                     artifactId = name,
-                    artifactVersion = releaseArtifactVersion,
+                    artifactVersion = catalogVersion,
                     catalogComponent = components["versionCatalog"],
                     mavenPublication = this,
                     libraryGroup = kaleyraLibraryGroup,

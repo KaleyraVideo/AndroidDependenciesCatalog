@@ -30,7 +30,7 @@ afterEvaluate {
             create<MavenPublication>("video-sdk-version-catalog") {
                 val versionCatalogPublicationConfig = VersionCatalogPublicationConfig(
                     artifactId = name,
-                    artifactVersion = releaseArtifactVersion,
+                    artifactVersion = catalogVersion,
                     catalogComponent = components["versionCatalog"],
                     mavenPublication = this,
                     libraryGroup = kaleyraLibraryGroup,

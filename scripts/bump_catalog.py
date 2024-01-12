@@ -43,6 +43,6 @@ try:
     print("Update Kaleyra Video SDK Catalog from ",current_version," to ", new_version)
 
     replace("../buildSrc/src/main/kotlin/Consts.kt", current_version, new_version)
-    set_output("TAG", "v"+new_version)
+    set_output("TAG", "catalog_v"+new_version)
 except Exception as error:
     sys.exit("Did not update version" + error)

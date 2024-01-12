@@ -18,7 +18,7 @@ afterEvaluate {
             create<MavenPublication>("kaleyra-bom") {
                 val bomPublicationConfig = BomPublicationConfig(
                     artifactId = "video-sdk-bom",
-                    artifactVersion = kaleyraVideoSdkVersion,
+                    artifactVersion = bomVersion,
                     mavenPublication = this,
                     libraryGroup = kaleyraLibraryGroup,
                     libraries = bom.KaleyraBom.libraries)

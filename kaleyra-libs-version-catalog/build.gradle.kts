@@ -31,7 +31,7 @@ afterEvaluate {
             create<MavenPublication>("kaleyra-libs-version-catalog") {
                 val versionCatalogPublicationConfig = VersionCatalogPublicationConfig(
                     artifactId = name,
-                    artifactVersion = releaseArtifactVersion,
+                    artifactVersion = catalogVersion,
                     catalogComponent = components["versionCatalog"],
                     mavenPublication = this,
                     libraryGroup = kaleyraLibraryGroup,

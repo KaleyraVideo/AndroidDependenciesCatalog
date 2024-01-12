@@ -5,10 +5,10 @@ val kaleyraLibVersion: String by project
 val dryRun: String by project
 
 val kaleyraLibsVersionCatalogPackages = mapOf<String, String>(
-    "com.kaleyra.kaleyra-libs-version-catalog" to releaseArtifactVersion,
-    "com.kaleyra.video-sdk-version-catalog" to releaseArtifactVersion,
-    "com.kaleyra.video-app-version-catalog" to releaseArtifactVersion,
-    "com.kaleyra.video-sdk-bom" to kaleyraVideoSdkVersion
+    "com.kaleyra.kaleyra-libs-version-catalog" to catalogVersion,
+    "com.kaleyra.video-sdk-version-catalog" to catalogVersion,
+    "com.kaleyra.video-app-version-catalog" to catalogVersion,
+    "com.kaleyra.video-sdk-bom" to bomVersion
 )
 
 tasks.register<Exec>("invalidateCache") {
@@ -20,12 +20,12 @@ tasks.register<Exec>("invalidateCache") {
 
 tasks.register<Exec>("updateBom") {
     workingDir = File("$rootDir/scripts")
-    commandLine("python3", "./bump_bom.py", "-cv", kaleyraVideoSdkVersion, "-nv", newBomVersion)
+    commandLine("python3", "./bump_bom.py", "-cv", bomVersion, "-nv", newBomVersion)
 }
 
 tasks.register<Exec>("updateCatalog") {
     workingDir = File("$rootDir/scripts")
-    commandLine("python3", "./bump_catalog.py", "-cv", releaseArtifactVersion, "-nv", newCatalogVersion)
+    commandLine("python3", "./bump_catalog.py", "-cv", catalogVersion, "-nv", newCatalogVersion)
 }
 
 tasks.register<Exec>("updateKaleyraLibVersion") {
