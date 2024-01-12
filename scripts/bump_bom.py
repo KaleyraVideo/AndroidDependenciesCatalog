@@ -33,7 +33,6 @@ try:
     # update
     print("Update Kaleyra Video SDK BOM from ",current_version," to ", new_version)
     replace("../buildSrc/src/main/kotlin/Consts.kt", current_version, new_version)
-    print("Updated!")
-    set_output("TAG", "v"+new_version)
+    set_output("TAG", "kaleyra-video-sdk-bom_v"+new_version)
 except Exception as error:
     sys.exit("Did not update version" + error)

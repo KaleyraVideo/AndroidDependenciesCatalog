@@ -6,14 +6,13 @@ on:
       specific_release_version:
         description: Define the specific release version?
         required: false
-      release_version:
-        type: choice
-        description: What kind of release do you want to do?
-        required: false
-        options:
-        - patch
-        - minor
-        - major
+    secrets:
+      MAVEN_ACCESSKEY:
+        required: true
+      MAVEN_SECRETKEY:
+        required: true
+      MAVEN_DISTRIBUTIONID:
+        required: true
       
 jobs:
   clean_build:
@@ -47,23 +46,20 @@ jobs:
           distribution: 'adopt'
           cache: gradle
       - name: add python dependecy
-        run: python3 -m pip install semver
-      - name: Update catalog version
-        if: "${{ github.event.inputs.release_version != '' }}"
-        run: ./gradlew updateCatalog -PnewCatalogVersion=${{ github.event.inputs.release_version }}
-      - name: Update catalog version
-        if: "${{ github.event.inputs.specific_release_version != '' }}"
+        run: python3 -m pip install semver boto3
+      - name: Update specific catalog version
+        id: output_specific_tag
         run: ./gradlew updateCatalog -PnewCatalogVersion=${{github.event.inputs.specific_release_version }}
-  release_catalog_version:
-    runs-on: ubuntu-latest
-    needs: update_catalog_version
-    steps:
-      - uses: actions/checkout@v2
-      - name: set up JDK 17
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'adopt'
-          cache: gradle
+      - name: Update Maven credentials
+        env:
+          MAVEN_ACCESSKEY: ${{ secrets.MAVEN_ACCESSKEY }}
+          MAVEN_SECRETKEY: ${{ secrets.MAVEN_SECRETKEY }}
+          MAVEN_DISTRIBUTIONID: ${{ secrets.MAVEN_DISTRIBUTIONID }}
+        run:
+          echo -e "maven.accessKey=$MAVEN_ACCESSKEY\nmaven.secretKey=$MAVEN_SECRETKEY\nmaven.distributionId=$MAVEN_DISTRIBUTIONID" >> ./local.properties
       - name: Release new catalog version
         run: ./gradlew publishUploadCatalog -PdryRun=false
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update catalog version
+          tagging_message: ${{ steps.output_specific_tag.outputs.TAG }}

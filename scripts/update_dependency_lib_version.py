@@ -1,8 +1,7 @@
-import semver
 import fileinput
 import argparse
-import subprocess
 import re
+import sys
 
 argParser = argparse.ArgumentParser()
 argParser.add_argument("-n", "--library_name", help="Library name to update", required=True)
@@ -25,10 +24,5 @@ try:
     print("Update ",library_name ," : ", library_version)
 
     replace("../buildSrc/src/main/kotlin/dependencies/KaleyraDependencies.kt", library_name, library_version)
-    print("Updated!")
-    print("Add changes to git")
-    subprocess.run(["git", "add", "-A"])
-    subprocess.run(["git", "commit","-m", f"Update library {library_name} to {library_version}"])
-    subprocess.run(["git", "push"])
 except Exception as error:
-    print("Did not update version", error)
+    sys.exit("Did not update version" + error)
