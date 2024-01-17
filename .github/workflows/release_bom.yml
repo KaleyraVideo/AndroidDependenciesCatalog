@@ -1,6 +1,29 @@
 name: Release Bom
 
 on:
+  workflow_call:
+    inputs:
+        specific_release_version:
+          description: Define the specific release version?
+          required: false
+          type: string
+        release_version:
+          type: string
+          description: What kind of release do you want to do?
+          required: false
+        auto_release:
+          description: 'To distinguish workflow_call from regular push'
+          type: boolean
+          required: false
+          default: true
+    secrets:
+        MAVEN_ACCESSKEY:
+          required: true
+        MAVEN_SECRETKEY:
+          required: true
+        MAVEN_DISTRIBUTIONID:
+          required: true
+  
   workflow_dispatch:
     inputs:
       specific_release_version:
@@ -21,12 +44,12 @@ on:
         required: true
       MAVEN_DISTRIBUTIONID:
         required: true
-      
 jobs:
   clean_build:
+    env:
+      MY_ENV: ${{ inputs.auto_release == 'true' && 'auto_release' || 'release_environment' }}
     runs-on: ubuntu-latest
-    environment:
-      name: release_environment
+    environment: ${{ MY_ENV }}
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 17
@@ -55,14 +78,9 @@ jobs:
           cache: gradle
       - name: add python dependency
         run:  python3 -m pip install semver boto3
-      - name: Update bom semver version
-        id: output_semver_tag
-        if: "${{ github.event.inputs.release_version != '' }}"
-        run: ./gradlew updateBom -PnewBomVersion=${{ github.event.inputs.release_version }}
-      - name: Update bom specific version
-        id: output_specific_tag
-        if: "${{ github.event.inputs.specific_release_version != '' }}"
-        run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version }}
+      - name: Update bom  version
+        id: output_tag
+        run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version || github.event.inputs.release_version }}
       - name: Update Maven credentials
         env:
           MAVEN_ACCESSKEY: ${{ secrets.MAVEN_ACCESSKEY }}
@@ -75,4 +93,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update bom version
-          tagging_message: ${{ steps.output_specific_tag.outputs.TAG || steps.output_semver_tag.outputs.TAG }}
+          tagging_message: ${{ steps.output_tag.outputs.TAG }}
