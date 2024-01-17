@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
         auto_release: ${{ inputs.auto_release }} # workaround for boolean input types
-    environment: ${{ auto_release && 'auto_release' || 'release_environment' }}
+    environment: ${{ env.auto_release && 'auto_release' || 'release_environment' }}
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 17
