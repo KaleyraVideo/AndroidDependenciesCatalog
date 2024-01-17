@@ -44,11 +44,11 @@ on:
         required: true
       MAVEN_DISTRIBUTIONID:
         required: true
+env: 
+   auto_release: ${{ inputs.auto_release }} # workaround for boolean input types
 jobs:
   clean_build:
     runs-on: ubuntu-latest
-    env: 
-        auto_release: ${{ inputs.auto_release }} # workaround for boolean input types
     environment: ${{ env.auto_release && 'auto_release' || 'release_environment' }}
     steps:
       - uses: actions/checkout@v2
