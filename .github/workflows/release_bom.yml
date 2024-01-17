@@ -13,9 +13,9 @@ on:
           required: false
         auto_release:
           description: 'To distinguish workflow_call from regular push'
-          type: boolean
+          type: string
           required: false
-          default: true
+          default: 'true'
     secrets:
         MAVEN_ACCESSKEY:
           required: true
@@ -44,12 +44,10 @@ on:
         required: true
       MAVEN_DISTRIBUTIONID:
         required: true
-env: 
-   auto_release: ${{ inputs.auto_release }} # workaround for boolean input types
 jobs:
   clean_build:
     runs-on: ubuntu-latest
-    environment: ${{ env.auto_release && 'auto_release' || 'release_environment' }}
+    environment: ${{ github.event.inputs.auto_release == 'true' && 'auto_release' || 'release_environment' }}
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 17
