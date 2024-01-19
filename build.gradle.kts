@@ -18,7 +18,6 @@ buildscript {
         google()
         gradlePluginPortal()
         maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
         maven { url = uri("https://plugins.gradle.org/m2/") }
         maven { url = uri("https://maven.bandyer.com/releases") }
         maven { url = uri("https://developer.huawei.com/repo/") }
@@ -36,7 +35,6 @@ allprojects {
         google()
         gradlePluginPortal()
         maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
         maven { url = uri("https://plugins.gradle.org/m2/") }
         maven { url = uri("https://maven.bandyer.com/releases") }
         maven { url = uri("https://developer.huawei.com/repo/") }

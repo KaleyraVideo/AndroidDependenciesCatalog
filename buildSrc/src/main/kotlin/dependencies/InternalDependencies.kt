@@ -72,7 +72,7 @@ object InternalDependencies : Dependencies {
             val licenseReportVersion = Version("licenseReportVersion", "2.5").apply { add(this) }
             val spotlessVersion = Version("spotlessVersion", "6.21.0").apply { add(this) }
             val detektVersion = Version("detektVersion", "1.23.1").apply { add(this) }
-            val jacocoVersion = Version("jacocoVersion", "0.2.1-SNAPSHOT").apply { add(this) }
+            val jacocoVersion = Version("jacocoVersion", "0.2.1").apply { add(this) }
             val sonarqubeVersion = Version("sonarqubeVersion", "3.5.0.2730").apply { add(this) }
             val gradleDownloadTaskVersion = Version("gradleDownloadTaskVersion", "5.5.0").apply { add(this) }
             val googleDevToolsKspVersion = Version("googleDevToolsKspVersion", "1.9.0-1.0.13").apply { add(this) }
