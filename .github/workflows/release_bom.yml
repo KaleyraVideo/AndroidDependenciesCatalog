@@ -57,7 +57,7 @@ jobs:
           repository: KaleyraVideo/AndroidDependenciesCatalog
           path: androidDependenciesCatalog
           ref: 'main'
-          token: ${{ secrets.PAT || github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: set up JDK 17
         uses: actions/setup-java@v2
         with:
@@ -83,7 +83,7 @@ jobs:
           repository: KaleyraVideo/AndroidDependenciesCatalog
           path: androidDependenciesCatalog
           ref: 'main'
-          token: ${{ secrets.PAT || github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: set up JDK 17
         uses: actions/setup-java@v2
         with:
