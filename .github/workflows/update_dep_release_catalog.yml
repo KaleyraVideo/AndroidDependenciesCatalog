@@ -1,6 +1,28 @@
 name: Update kaleyra dependency and release Catalog
 
 on:
+  workflow_call:
+    inputs:
+      specific_catalog_release_version:
+        description: Define the specific release version?
+        type: string
+        required: false
+      library_name:
+        type: string
+        description: Define the kaleyra library name that needs to be updated
+        required: true
+      library_version:
+        type: string
+        description: Define the kaleyra library version that needs to be updated
+        required: true
+    secrets:
+      MAVEN_ACCESSKEY:
+        required: true
+      MAVEN_SECRETKEY:
+        required: true
+      MAVEN_DISTRIBUTIONID:
+        required: true
+        
   workflow_dispatch:
     inputs:
       specific_catalog_release_version:
