@@ -1,0 +1,34 @@
+name: Update kaleyra dependency and release Catalog
+
+on:
+  workflow_dispatch:
+    inputs:
+      specific_catalog_release_version:
+        description: Define the specific release version?
+        required: false
+      library_name:
+        description: Define the kaleyra library name that needs to be updated
+        required: true
+      library_version:
+        description: Define the kaleyra library version that needs to be updated
+        required: true
+    secrets:
+      MAVEN_ACCESSKEY:
+        required: true
+      MAVEN_SECRETKEY:
+        required: true
+      MAVEN_DISTRIBUTIONID:
+        required: true
+jobs:
+  update_library:
+    uses: KaleyraVideo/AndroidDependenciesCatalog/.github/workflows/update_dependency_library.yml@main
+    with:
+      specific_release_version: ${{ github.event.inputs.specific_catalog_release_version }}
+    secrets: inherit
+  release_catalog:
+    needs: update_library
+    uses: KaleyraVideo/AndroidDependenciesCatalog/.github/workflows/release_catalog.yml@main
+    with:
+      library_name: ${{ github.event.inputs.library_name }}
+      library_version: ${{ github.event.inputs.library_version }}
+    secrets: inherit
