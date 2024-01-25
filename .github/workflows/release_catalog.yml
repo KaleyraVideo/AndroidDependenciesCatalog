@@ -1,6 +1,20 @@
 name: Release Catalog
 
 on:
+  workflow_call:
+    inputs:
+      specific_release_version:
+        type: string
+        description: Define the specific release version?
+        required: false
+    secrets:
+      MAVEN_ACCESSKEY:
+        required: true
+      MAVEN_SECRETKEY:
+        required: true
+      MAVEN_DISTRIBUTIONID:
+        required: true
+
   workflow_dispatch:
     inputs:
       specific_release_version:
