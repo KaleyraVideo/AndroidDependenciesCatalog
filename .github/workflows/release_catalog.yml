@@ -73,6 +73,8 @@ jobs:
           echo -e "maven.accessKey=$MAVEN_ACCESSKEY\nmaven.secretKey=$MAVEN_SECRETKEY\nmaven.distributionId=$MAVEN_DISTRIBUTIONID" >> ./local.properties
       - name: Release new catalog version
         run: ./gradlew publishUploadCatalog -PdryRun=false
+      - name: Pull Remote Changes
+        run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update catalog version
