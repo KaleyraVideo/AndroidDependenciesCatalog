@@ -1,6 +1,17 @@
 name: Update dependency library
 
 on:
+  workflow_call:
+    inputs:
+      library_name:
+        type: string
+        description: Define the kaleyra library name that needs to be updated
+        required: true
+      library_version:
+        type: string
+        description: Define the kaleyra library version that needs to be updated
+        required: true
+        
   workflow_dispatch:
     inputs:
       library_name:
