@@ -45,12 +45,12 @@ jobs:
   update_library:
     uses: KaleyraVideo/AndroidDependenciesCatalog/.github/workflows/update_dependency_library.yml@main
     with:
-      specific_release_version: ${{ github.event.inputs.specific_catalog_release_version }}
+      library_name: ${{ github.event.inputs.library_name }}
+      library_version: ${{ github.event.inputs.library_version }}
     secrets: inherit
   release_catalog:
     needs: update_library
     uses: KaleyraVideo/AndroidDependenciesCatalog/.github/workflows/release_catalog.yml@main
     with:
-      library_name: ${{ github.event.inputs.library_name }}
-      library_version: ${{ github.event.inputs.library_version }}
+        specific_release_version: ${{ github.event.inputs.specific_catalog_release_version }}
     secrets: inherit
