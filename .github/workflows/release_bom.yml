@@ -11,13 +11,6 @@ on:
           type: string
           description: What kind of release do you want to do?
           required: false
-    secrets:
-        MAVEN_ACCESSKEY:
-          required: true
-        MAVEN_SECRETKEY:
-          required: true
-        MAVEN_DISTRIBUTIONID:
-          required: true
   
   workflow_dispatch:
     inputs:
@@ -32,13 +25,6 @@ on:
         - patch
         - minor
         - major
-    secrets:
-      MAVEN_ACCESSKEY:
-        required: true
-      MAVEN_SECRETKEY:
-        required: true
-      MAVEN_DISTRIBUTIONID:
-        required: true
 jobs:
   clean_build:
     runs-on: ubuntu-latest
@@ -52,6 +38,7 @@ jobs:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          repositories: AndroidDependenciesCatalog
       - uses: actions/checkout@v2
         with: 
           repository: KaleyraVideo/AndroidDependenciesCatalog
@@ -83,6 +70,7 @@ jobs:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          repositories: AndroidDependenciesCatalog
       - uses: actions/checkout@v2
         with:
           repository: KaleyraVideo/AndroidDependenciesCatalog
