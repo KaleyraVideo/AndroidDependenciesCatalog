@@ -11,11 +11,6 @@ on:
           type: string
           description: What kind of release do you want to do?
           required: false
-        auto_release:
-          description: 'To distinguish workflow_call from regular push'
-          type: string
-          required: false
-          default: 'true'
     secrets:
         MAVEN_ACCESSKEY:
           required: true
@@ -47,7 +42,6 @@ on:
 jobs:
   clean_build:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.auto_release == 'true' && 'auto_release' || 'release_environment' }}
     defaults:
       run:
         working-directory: ./androidDependenciesCatalog
@@ -71,7 +65,6 @@ jobs:
           distribution: 'adopt'
           cache: gradle
       - name: Setup android sdk
-        if: ${{ env.ACT }} # Only run on local act setups, as GitHub Actions provides the Android SDK on Ubuntu
         uses: android-actions/setup-android@v2
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
