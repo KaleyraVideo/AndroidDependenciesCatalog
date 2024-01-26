@@ -38,7 +38,7 @@ tasks.register("publishUploadBom") {
     val publishTask = if (dryRun.toBoolean()) "publishToMavenLocal" else "publish"
     println("publishing ${project.name} to ${if (dryRun.toBoolean()) "local" else "remote"} maven repository ...")
     dependsOn(publishTask)
-    dependsOn("invalidateCache")
+    // dependsOn("invalidateCache")
     tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
 }
 
@@ -47,6 +47,6 @@ tasks.register("publishUploadCatalog") {
     val publishTask = if (dryRun.toBoolean()) "publishToMavenLocal" else "publish"
     println("publishing ${project.name} to ${if (dryRun.toBoolean()) "local" else "remote"} maven repository ...")
     dependsOn(publishTask)
-    dependsOn("invalidateCache")
+   // dependsOn("invalidateCache")
     tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
 }
