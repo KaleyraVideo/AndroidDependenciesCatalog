@@ -87,12 +87,8 @@ jobs:
         id: output_tag
         run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version || github.event.inputs.release_version }}
       - name: Update Maven credentials
-        env:
-          MAVEN_ACCESSKEY: ${{ secrets.MAVEN_ACCESSKEY }}
-          MAVEN_SECRETKEY: ${{ secrets.MAVEN_SECRETKEY }}
-          MAVEN_DISTRIBUTIONID: ${{ secrets.MAVEN_DISTRIBUTIONID }}
         run:
-          echo -e "maven.accessKey=$MAVEN_ACCESSKEY\nmaven.secretKey=$MAVEN_SECRETKEY\nmaven.distributionId=$MAVEN_DISTRIBUTIONID" >> ./local.properties
+          echo -e "maven.accessKey=${{ secrets.MAVEN_ACCESSKEY }}\nmaven.secretKey=${{ secrets.MAVEN_SECRETKEY }}\nmaven.distributionId=${{ secrets.MAVEN_DISTRIBUTIONID }}" >> ./local.properties
       - name: Release new bom version
         run: ./gradlew publishUploadBom -PdryRun=false
       - uses: stefanzweifel/git-auto-commit-action@v5
