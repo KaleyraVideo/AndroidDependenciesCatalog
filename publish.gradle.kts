@@ -11,12 +11,22 @@ val kaleyraLibsVersionCatalogPackages = mapOf<String, String>(
     "com.kaleyra.video-sdk-bom" to bomVersion
 )
 
-// tasks.register<Exec>("invalidateCache") {
-//     val invalidatePackage = kaleyraLibsVersionCatalogPackages.entries.first { it.key.contains(project.name) }
-//     workingDir = File("$rootDir/scripts")
-//     println("invalidating maven cache: ${invalidatePackage.key} ${invalidatePackage.value}")
-//     commandLine("python3", "./invalidate_s3_cache.py", mavenAccessKey, mavenSecretKey, mavenDistributionId, publishPath, invalidatePackage.key, invalidatePackage.value)
-// }
+tasks.register<Exec>("invalidateCache") {
+    val invalidatePackage =
+        kaleyraLibsVersionCatalogPackages.entries.first { it.key.contains(project.name) }
+    workingDir = File("$rootDir/scripts")
+    println("invalidating maven cache: ${invalidatePackage.key} ${invalidatePackage.value}")
+    commandLine(
+        "python3",
+        "./invalidate_s3_cache.py",
+        mavenAccessKey,
+        mavenSecretKey,
+        mavenDistributionId,
+        publishPath,
+        invalidatePackage.key,
+        invalidatePackage.value
+    )
+}
 
 tasks.register<Exec>("updateBom") {
     workingDir = File("$rootDir/scripts")
@@ -30,7 +40,14 @@ tasks.register<Exec>("updateCatalog") {
 
 tasks.register<Exec>("updateKaleyraLibVersion") {
     workingDir = File("$rootDir/scripts")
-    commandLine("python3", "./update_kaleyra_lib_version.py", "-n", kaleyraLibName, "-v", kaleyraLibVersion)
+    commandLine(
+        "python3",
+        "./update_kaleyra_lib_version.py",
+        "-n",
+        kaleyraLibName,
+        "-v",
+        kaleyraLibVersion
+    )
 }
 
 tasks.register("publishUploadBom") {
@@ -38,8 +55,8 @@ tasks.register("publishUploadBom") {
     val publishTask = if (dryRun.toBoolean()) "publishToMavenLocal" else "publish"
     println("publishing ${project.name} to ${if (dryRun.toBoolean()) "local" else "remote"} maven repository ...")
     dependsOn(publishTask)
-    // dependsOn("invalidateCache")
-   // tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
+    dependsOn("invalidateCache")
+    tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
 }
 
 tasks.register("publishUploadCatalog") {
@@ -47,6 +64,6 @@ tasks.register("publishUploadCatalog") {
     val publishTask = if (dryRun.toBoolean()) "publishToMavenLocal" else "publish"
     println("publishing ${project.name} to ${if (dryRun.toBoolean()) "local" else "remote"} maven repository ...")
     dependsOn(publishTask)
-   // dependsOn("invalidateCache")
-   // tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
+    dependsOn("invalidateCache")
+    tasks.findByName("invalidateCache")?.mustRunAfter(publishTask)
 }
