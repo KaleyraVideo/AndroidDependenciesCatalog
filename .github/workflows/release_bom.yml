@@ -3,14 +3,14 @@ name: Release Bom
 on:
   workflow_call:
     inputs:
-        specific_release_version:
-          description: Define the specific release version?
-          required: false
-          type: string
-        release_version:
-          type: string
-          description: What kind of release do you want to do?
-          required: false
+      specific_release_version:
+        description: Define the specific release version?
+        required: false
+        type: string
+      release_version:
+        type: string
+        description: What kind of release do you want to do?
+        required: false
   
   workflow_dispatch:
     inputs:
@@ -22,9 +22,9 @@ on:
         description: What kind of release do you want to do?
         required: false
         options:
-        - patch
-        - minor
-        - major
+          - patch
+          - minor
+          - major
 jobs:
   clean_build:
     runs-on: ubuntu-latest
@@ -34,25 +34,33 @@ jobs:
     steps:
       - uses: actions/create-github-app-token@v1
         id: app-token
-        with: 
+        with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
           repositories: AndroidDependenciesCatalog
       - uses: actions/checkout@v2
-        with: 
+        with:
           repository: KaleyraVideo/AndroidDependenciesCatalog
           path: androidDependenciesCatalog
           ref: 'main'
           token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - name: set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: gradle
+          cache: 'gradle'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+        run: pip install -r requirements.txt
       - name: Setup android sdk
-        uses: android-actions/setup-android@v2
+        uses: android-actions/setup-android@v3
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build module
@@ -66,31 +74,36 @@ jobs:
     steps:
       - uses: actions/create-github-app-token@v1
         id: app-token
-        with: 
+        with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
           repositories: AndroidDependenciesCatalog
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: KaleyraVideo/AndroidDependenciesCatalog
           path: androidDependenciesCatalog
           ref: 'main'
           token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - name: set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: gradle
-      - name: add python dependency
-        run:  python3 -m pip install semver boto3
+          cache: 'gradle'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+        run: pip install -r requirements.txt
+      - name: Update Maven credentials
+        run: echo -e "maven.accessKey=${{ secrets.MAVEN_ACCESSKEY }}\nmaven.secretKey=${{ secrets.MAVEN_SECRETKEY }}\nmaven.distributionId=${{ secrets.MAVEN_DISTRIBUTIONID }}" >> ./local.properties
       - name: Update bom  version
         id: output_tag
         run: ./gradlew updateBom -PnewBomVersion=${{github.event.inputs.specific_release_version || github.event.inputs.release_version }}
-      - name: Update Maven credentials
-        run:
-          echo -e "maven.accessKey=${{ secrets.MAVEN_ACCESSKEY }}\nmaven.secretKey=${{ secrets.MAVEN_SECRETKEY }}\nmaven.distributionId=${{ secrets.MAVEN_DISTRIBUTIONID }}" >> ./local.properties
       - name: Release new bom version
         run: ./gradlew publishUploadBom -PdryRun=false
       - uses: stefanzweifel/git-auto-commit-action@v5
