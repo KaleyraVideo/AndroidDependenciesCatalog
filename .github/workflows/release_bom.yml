@@ -58,6 +58,7 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
+      - name: Install python deps
         run: pip install -r requirements.txt
       - name: Setup android sdk
         uses: android-actions/setup-android@v3
@@ -98,6 +99,7 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
+      - name: Install python deps
         run: pip install -r requirements.txt
       - name: Update Maven credentials
         run: echo -e "maven.accessKey=${{ secrets.MAVEN_ACCESSKEY }}\nmaven.secretKey=${{ secrets.MAVEN_SECRETKEY }}\nmaven.distributionId=${{ secrets.MAVEN_DISTRIBUTIONID }}" >> ./local.properties
