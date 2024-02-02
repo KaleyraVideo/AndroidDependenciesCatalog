@@ -60,8 +60,6 @@ jobs:
           cache: 'pip'
       - name: Install python deps
         run: pip install -r requirements.txt
-      - name: Setup android sdk
-        uses: android-actions/setup-android@v3
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build module
