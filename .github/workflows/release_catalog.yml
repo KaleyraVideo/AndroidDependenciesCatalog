@@ -46,6 +46,8 @@ jobs:
         uses: android-actions/setup-android@v2
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: Generate catalog tomls
+        run: ./gradlew generateCatalogAsToml
       - name: Build module
         run: ./gradlew clean build
   update_catalog_version:

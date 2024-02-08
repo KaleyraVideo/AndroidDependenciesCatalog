@@ -63,6 +63,11 @@ dependencies { dependencyHandler ->
         println("Implementing all libraries defined in videoAppVersionCatalog...")
         implementAll(dependencyHandler, videoAppVersionCatalog, skipPackages)
     }
+
+    if ((new File("kaleyra-libs-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
+        println("Implementing all libraries defined in kaleyraLibsVersionCatalog...")
+        implementAll(dependencyHandler, kaleyraLibsVersionCatalog, skipPackages)
+    }
 }
 
 private void implementAll(DependencyHandler dependencyHandler, AbstractExternalDependencyFactory factory, List<String> skipList) {
