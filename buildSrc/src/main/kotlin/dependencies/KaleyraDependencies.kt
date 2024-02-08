@@ -26,7 +26,7 @@ object KaleyraDependencies : Dependencies {
 
             // kaleyra
             val kaleyraChatSdkVersion = Version("kaleyraChatSdkVersion", "1.0.0-alpha15").apply { add(this) }
-            val kaleyraVideoVersion = Version("kaleyraVideoVersion", "1.0.0-rc05").apply { add(this) }
+            val kaleyraVideoVersion = Version("kaleyraVideoVersion", "1.0.0-rc06").apply { add(this) }
             val kaleyraVideoUtilsVersion = Version("kaleyraVideoUtilsVersion", "2.0.1").apply { add(this) }
             val kaleyraVideoNetworkingVersion = Version("kaleyraVideoNetworkingVersion", "4.0.0").apply { add(this) }
             val kaleyraSocketIoVersion = Version("kaleyraSocketIoVersion", "2.0.1").apply { add(this) }
