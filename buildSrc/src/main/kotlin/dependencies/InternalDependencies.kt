@@ -92,7 +92,6 @@ object InternalDependencies : Dependencies {
                 add(Library("androidxComposeUiTestJunit4", "androidx.compose.ui", "ui-test-junit4", androidxComposeUiTestJunit4Version))
                 add(Library("androidxComposeConstraintLayout", "androidx.constraintlayout", "constraintlayout-compose", androidxComposeConstraintLayoutVersion))
 
-
                 // androidx
                 add(Library("androidxStartupRuntime", "androidx.startup", "startup-runtime", androidxStartupRuntimeVersion))
                 add(Library("androidxLifecycleExtensions", "androidx.lifecycle", "lifecycle-livedata-ktx", androidxLifecycleVersion))
@@ -128,6 +127,7 @@ object InternalDependencies : Dependencies {
                 // testing-libraries
                 add(Library("flowTestObserver", "com.github.ologe", "flow-test-observer", testFlowObserverVersion))
                 add(Library("androidxTestCore", "androidx.test", "core", androidxTestCoreVersion))
+                add(Library("androidxTestCoreKtx", "androidx.test", "core-ktx", androidxTestCoreVersion))
                 add(Library("androidxArchCoreTesting", "androidx.arch.core", "core-testing", androidxArchCoreTestingVersion))
                 add(Library("okhttpMockWebServer", "com.squareup.okhttp3", "mockwebserver", okhttpMockWebServerVersion))
                 add(Library("robolectric", "org.robolectric", "robolectric", robolectricVersion))
