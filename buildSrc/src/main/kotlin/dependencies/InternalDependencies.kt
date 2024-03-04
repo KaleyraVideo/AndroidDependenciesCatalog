@@ -54,7 +54,7 @@ object InternalDependencies : Dependencies {
             val testFlowObserverVersion = Version("testFlowObserverVersion", "1.6.2").apply { add(this) }
             val androidxTestCoreVersion = Version("androidxTestCoreVersion", "1.5.0").apply { add(this) }
             val okhttpMockWebServerVersion = Version("okhttpMockWebServerVersion", "4.9.3").apply { add(this) }
-            val roboelectricVersion = Version("roboelectricVersion", "4.11.1").apply { add(this) }
+            val robolectricVersion = Version("robolectricVersion", "4.11.1").apply { add(this) }
             val androidxTestRulesVersion = Version("androidxTestRulesVersion", "1.5.0").apply { add(this) }
             val androidxTestEspressoIntentsVersion = Version("androidxTestEspressoIntentsVersion", "3.4.0").apply { add(this) }
             val androidxTestUiAutomatorVersion = Version("androidxTestUiAutomatorVersion", "2.2.0").apply { add(this) }
@@ -130,7 +130,7 @@ object InternalDependencies : Dependencies {
                 add(Library("androidxTestCore", "androidx.test", "core", androidxTestCoreVersion))
                 add(Library("androidxArchCoreTesting", "androidx.arch.core", "core-testing", androidxArchCoreTestingVersion))
                 add(Library("okhttpMockWebServer", "com.squareup.okhttp3", "mockwebserver", okhttpMockWebServerVersion))
-                add(Library("roboelectric", "org.robolectric", "robolectric", roboelectricVersion))
+                add(Library("robolectric", "org.robolectric", "robolectric", robolectricVersion))
                 add(Library("androidxTestRules", "androidx.test", "rules", androidxTestRulesVersion))
                 add(Library("androidxTestUiAutomator", "androidx.test.uiautomator", "uiautomator", androidxTestUiAutomatorVersion))
                 add(Library("androidxBenchmarkMacroJunit4", "androidx.benchmark", "benchmark-macro-junit4", androidxBenchmarkMacroJunit4Version))
