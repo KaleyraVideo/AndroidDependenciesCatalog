@@ -21,8 +21,8 @@ object KaleyraDependencies : Dependencies {
             // bandyer
             val kaleyraVideoCoreAvVersion = Version("kaleyraVideoCoreAvVersion", "1.0.2").apply { add(this) }
             val bandyerFirecrasherVersion = Version("bandyerFirecrasherVersion", "1.1.1").apply { add(this) }
-            val bandyerCommunicationCenterVersion = Version("bandyerCommunicationCenterVersion", "14.0.1").apply { add(this) }
-            val bandyerAudioSessionVersion = Version("bandyerAudioSessionVersion", "4.0.0").apply { add(this) }
+            val kaleyraCommunicationCenterVersion = Version("kaleyraCommunicationCenterVersion", "14.0.1").apply { add(this) }
+            val kaleyraAudioSessionVersion = Version("kaleyraAudioSessionVersion", "4.0.0").apply { add(this) }
 
             // kaleyra
             val kaleyraChatSdkVersion = Version("kaleyraChatSdkVersion", "1.0.0-alpha15").apply { add(this) }
@@ -42,11 +42,11 @@ object KaleyraDependencies : Dependencies {
                 add(Library("kaleyraVideoCoreAv", "com.kaleyra", "video-core-av", kaleyraVideoCoreAvVersion))
                 add(Library("kaleyraSocketIo", "com.kaleyra", "socket.io-client", kaleyraSocketIoVersion))
                 add(Library("kaleyraFirecrasher", "com.bandyer", "firecrasher", bandyerFirecrasherVersion))
-                add(Library("kaleyraCommunicationCenter", "com.bandyer", "communication_center", bandyerCommunicationCenterVersion))
-                add(Library("kaleyraCommunicationCenterExtensionLivePointer", "com.bandyer", "extension_live_pointer", bandyerCommunicationCenterVersion))
-                add(Library("kaleyraCommunicationCenterExtensionFileShare", "com.bandyer", "extension_file_share", bandyerCommunicationCenterVersion))
+                add(Library("kaleyraCommunicationCenter", "com.bandyer", "communication_center", kaleyraCommunicationCenterVersion))
+                add(Library("kaleyraCommunicationCenterExtensionLivePointer", "com.bandyer", "extension_live_pointer", kaleyraCommunicationCenterVersion))
+                add(Library("kaleyraCommunicationCenterExtensionFileShare", "com.bandyer", "extension_file_share", kaleyraCommunicationCenterVersion))
                 add(Library("kaleyraChatSdk", "com.bandyer", "bandyer-android-chat", kaleyraChatSdkVersion))
-                add(Library("kaleyraAudioSession", "com.bandyer", "bandyer-android-audiosession", bandyerAudioSessionVersion))
+                add(Library("kaleyraAudioSession", "com.bandyer", "bandyer-android-audiosession", kaleyraAudioSessionVersion))
                 add(Library("kaleyraVideoCoreAvExtensionExternalCamera", "com.kaleyra", "video-extension-external-camera", kaleyraVideoCoreAvVersion))
                 add(Library("kaleyraVideoCoreAvExtensionVirtualBackground", "com.kaleyra", "video-extension-virtual-background", kaleyraVideoCoreAvVersion))
             }
