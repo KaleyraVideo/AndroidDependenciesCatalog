@@ -54,7 +54,7 @@ object InternalDependencies : Dependencies {
             val testFlowObserverVersion = Version("testFlowObserverVersion", "1.6.2").apply { add(this) }
             val androidxTestCoreVersion = Version("androidxTestCoreVersion", "1.5.0").apply { add(this) }
             val okhttpMockWebServerVersion = Version("okhttpMockWebServerVersion", "4.9.3").apply { add(this) }
-            val roboelectricVersion = Version("roboelectricVersion", "4.9").apply { add(this) }
+            val roboelectricVersion = Version("roboelectricVersion", "4.11.1").apply { add(this) }
             val androidxTestRulesVersion = Version("androidxTestRulesVersion", "1.5.0").apply { add(this) }
             val androidxTestEspressoIntentsVersion = Version("androidxTestEspressoIntentsVersion", "3.4.0").apply { add(this) }
             val androidxTestUiAutomatorVersion = Version("androidxTestUiAutomatorVersion", "2.2.0").apply { add(this) }
