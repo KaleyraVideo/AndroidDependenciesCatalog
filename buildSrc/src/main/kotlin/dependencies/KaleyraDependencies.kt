@@ -22,7 +22,7 @@ object KaleyraDependencies : Dependencies {
             val kaleyraVideoCoreAvVersion = Version("kaleyraVideoCoreAvVersion", "1.0.2").apply { add(this) }
             val bandyerFirecrasherVersion = Version("bandyerFirecrasherVersion", "1.1.1").apply { add(this) }
             val kaleyraCommunicationCenterVersion = Version("kaleyraCommunicationCenterVersion", "14.0.1").apply { add(this) }
-            val kaleyraAudioSessionVersion = Version("kaleyraAudioSessionVersion", "4.0.0").apply { add(this) }
+            val kaleyraAudioSessionVersion = Version("kaleyraAudioSessionVersion", "5.0.0").apply { add(this) }
 
             // kaleyra
             val kaleyraChatSdkVersion = Version("kaleyraChatSdkVersion", "1.0.0-alpha15").apply { add(this) }
