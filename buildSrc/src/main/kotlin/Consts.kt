@@ -1,7 +1,7 @@
 const val kaleyraLibraryGroup = "com.kaleyra"
 const val publishPath = "releases"
 
-val catalogVersion = "2024.03.02"
+val catalogVersion = "2024.03.03"
 val bomVersion = "4.0.0-rc06"
 val mavenAccessKey = runCatching { getLocalProperty("maven.accessKey") }.getOrNull() ?: ""
 val mavenSecretKey = runCatching { getLocalProperty("maven.secretKey") }.getOrNull() ?: ""
