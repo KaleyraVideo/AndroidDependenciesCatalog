@@ -19,7 +19,7 @@ object KaleyraDependencies : Dependencies {
             println("Setting kaleyra dependency versions...")
 
             // bandyer
-            val kaleyraVideoCoreAvVersion = Version("kaleyraVideoCoreAvVersion", "1.0.2").apply { add(this) }
+            val kaleyraVideoCoreAvVersion = Version("kaleyraVideoCoreAvVersion", "1.0.0-rc09").apply { add(this) }
             val bandyerFirecrasherVersion = Version("bandyerFirecrasherVersion", "1.1.1").apply { add(this) }
             val kaleyraCommunicationCenterVersion = Version("kaleyraCommunicationCenterVersion", "14.1.1").apply { add(this) }
             val kaleyraAudioSessionVersion = Version("kaleyraAudioSessionVersion", "5.0.1").apply { add(this) }
@@ -27,8 +27,8 @@ object KaleyraDependencies : Dependencies {
             // kaleyra
             val kaleyraChatSdkVersion = Version("kaleyraChatSdkVersion", "1.0.0-alpha15").apply { add(this) }
             val kaleyraVideoVersion = Version("kaleyraVideoVersion", "1.0.0-rc09").apply { add(this) }
-            val kaleyraVideoUtilsVersion = Version("kaleyraVideoUtilsVersion", "2.0.1").apply { add(this) }
-            val kaleyraVideoNetworkingVersion = Version("kaleyraVideoNetworkingVersion", "4.1.0").apply { add(this) }
+            val kaleyraVideoUtilsVersion = Version("kaleyraVideoUtilsVersion", "1.0.0-rc09").apply { add(this) }
+            val kaleyraVideoNetworkingVersion = Version("kaleyraVideoNetworkingVersion", "1.0.0-rc09").apply { add(this) }
             val kaleyraSocketIoVersion = Version("kaleyraSocketIoVersion", "2.0.1").apply { add(this) }
 
             libraries.apply {
