@@ -28,6 +28,7 @@ on:
         - kaleyraVideoUtilsVersion
         - kaleyraVideoNetworkingVersion
         - kaleyraSocketIoVersion
+        required: true
       library_version:
         description: Define the kaleyra library version that needs to be updated
         required: true
