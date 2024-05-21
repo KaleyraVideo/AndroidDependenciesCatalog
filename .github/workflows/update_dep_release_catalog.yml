@@ -29,7 +29,19 @@ on:
         description: Define the specific release version?
         required: false
       library_name:
-        description: Define the kaleyra library name that needs to be updated
+        description: Select the kaleyra library variable name that needs to be updated
+        type: choice
+        options:
+        - 
+        - kaleyraVideoCoreAvVersion
+        - bandyerFirecrasherVersion
+        - kaleyraCommunicationCenterVersion
+        - kaleyraAudioSessionVersion
+        - kaleyraChatSdkVersion
+        - kaleyraVideoVersion
+        - kaleyraVideoUtilsVersion
+        - kaleyraVideoNetworkingVersion
+        - kaleyraSocketIoVersion
         required: true
       library_version:
         description: Define the kaleyra library version that needs to be updated
