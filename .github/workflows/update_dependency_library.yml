@@ -15,8 +15,19 @@ on:
   workflow_dispatch:
     inputs:
       library_name:
-        description: Define the kaleyra library name that needs to be updated
-        required: true
+        description: Select the kaleyra library variable name that needs to be updated
+        type: choice
+        options:
+        - 
+        - kaleyraVideoCoreAvVersion
+        - bandyerFirecrasherVersion
+        - kaleyraCommunicationCenterVersion
+        - kaleyraAudioSessionVersion
+        - kaleyraChatSdkVersion
+        - kaleyraVideoVersion
+        - kaleyraVideoUtilsVersion
+        - kaleyraVideoNetworkingVersion
+        - kaleyraSocketIoVersion
       library_version:
         description: Define the kaleyra library version that needs to be updated
         required: true
