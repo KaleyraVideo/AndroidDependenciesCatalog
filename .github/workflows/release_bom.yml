@@ -44,6 +44,8 @@ jobs:
           repository: KaleyraVideo/AndroidDependenciesCatalog
           path: androidDependenciesCatalog
           ref: 'main'
+          fetch-depth: 0
+          fetch-tags: true
           token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - name: set up JDK 17
         uses: actions/setup-java@v4
@@ -81,6 +83,8 @@ jobs:
           repository: KaleyraVideo/AndroidDependenciesCatalog
           path: androidDependenciesCatalog
           ref: 'main'
+          fetch-depth: 0
+          fetch-tags: true
           token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - name: set up JDK 17
         uses: actions/setup-java@v4
