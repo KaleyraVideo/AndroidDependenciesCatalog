@@ -63,7 +63,7 @@ jobs:
           distribution: 'adopt'
           cache: gradle
       - name: Update kaleyra dependency library version
-        run: ./gradlew updateKaleyraLibVersion -PkaleyraLibName=${{ github.event.inputs.library_name }} -PkaleyraLibVersion=${{ github.event.inputs.library_version }}
+        run: ./gradlew updateKaleyraLibVersion -PkaleyraLibName=${{ inputs.library_name }} -PkaleyraLibVersion=${{ inputs.library_version }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update library ${{ github.event.inputs.library_name }} to ${{ github.event.inputs.library_version }}
+          commit_message: Update library ${{ inputs.library_name }} to ${{ inputs.library_version }}
