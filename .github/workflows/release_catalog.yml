@@ -73,7 +73,7 @@ jobs:
         run: python3 -m pip install semver boto3
       - name: Update specific catalog version
         id: output_specific_tag
-        run: ./gradlew updateCatalog -PnewCatalogVersion=${{github.event.inputs.specific_release_version }}
+        run: ./gradlew updateCatalog -PnewCatalogVersion=${{inputs.specific_release_version }}
       - name: Update Maven credentials
         env:
           MAVEN_ACCESSKEY: ${{ secrets.MAVEN_ACCESSKEY }}
