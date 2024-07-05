@@ -61,9 +61,9 @@ object InternalDependencies : Dependencies {
             val androidxBenchmarkMacroJunit4Version = Version("androidxBenchmarkMacroJunit4Version", "1.1.0").apply { add(this) }
 
             // common
-            val sdkVersion = Version("sdkVersion", "33").apply { add(this) }
+            val sdkVersion = Version("sdkVersion", "34").apply { add(this) }
             val minSdkVersion = Version("minSdkVersion", "21").apply { add(this) }
-            val toolsVersion = Version("toolsVersion", "33.0.1").apply { add(this) }
+            val toolsVersion = Version("toolsVersion", "34.0.0").apply { add(this) }
             val proguardVersion = Version("proguardVersion", "7.3.1").apply { add(this) }
             val ktlintVersion = Version("ktlintVersion", "0.50.0").apply { add(this) }
             val kotlinCompilerExtensionVersion = Version("kotlinCompilerExtensionVersion", "1.5.2").apply { add(this) }

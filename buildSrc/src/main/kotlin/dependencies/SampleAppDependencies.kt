@@ -65,8 +65,8 @@ object SampleAppDependencies : Dependencies {
 
             // common
             val sampleAppMinSdkVersion = Version("sampleAppMinSdkVersion", "21").apply { add(this) }
-            val sampleAppSdkVersion = Version("sampleAppSdkVersion", "33").apply { add(this) }
-            val sampleAppToolsVersion = Version("sampleAppToolsVersion", "33.0.1").apply { add(this) }
+            val sampleAppSdkVersion = Version("sampleAppSdkVersion", "34").apply { add(this) }
+            val sampleAppToolsVersion = Version("sampleAppToolsVersion", "34.0.0").apply { add(this) }
 
             // plugins
             val gmsGoogleVersion = Version("gmsGoogleVersion", "4.3.15").apply { add(this) }
