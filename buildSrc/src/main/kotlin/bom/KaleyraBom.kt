@@ -20,7 +20,6 @@ object KaleyraBom: Bom {
             add(Library("kaleyraVideoGlassesSdk", "com.kaleyra", "video-glasses-sdk", Version("kaleyraVideoGlassesSdkVersion", bomVersion)))
 
             add(Library("kaleyraVideoExtensionExternalCamera", "com.kaleyra", "video-extension-external-camera", Version("kaleyraVideoExtensionExternalCamera", kaleyraVideoExtensionsVersion)))
-            add(Library("KaleyraVideoExtensionVirtualBackground", "com.kaleyra", "video-extension-virtual-background", Version("KaleyraVideoExtensionVirtualBackground", kaleyraVideoExtensionsVersion)))
         }
     }
 }
