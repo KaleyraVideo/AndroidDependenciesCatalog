@@ -35,7 +35,7 @@ object InternalDependencies : Dependencies {
             val jetbrainsKotlinxDateTimeVersion = Version("jetbrainsKotlinxDateTimeVersion", "0.4.1").apply { add(this) }
 
             // google
-            val googleSegmentationSelfieVersion = Version("googleSegmentationSelfieVersion", "16.0.0-beta4").apply { add(this) }
+            val googleSegmentationSelfieVersion = Version("googleSegmentationSelfieVersion", "16.0.0-beta6").apply { add(this) }
             val googleFlexboxVersion = Version("googleFlexboxVersion", "3.0.0").apply { add(this) }
             val googleAccompanistVersion = Version("googleAccompanistVersion", "0.27.0").apply { add(this) }
 
