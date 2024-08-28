@@ -30,7 +30,7 @@ object KaleyraDependencies : Dependencies {
             val kaleyraVideoUtilsVersion = Version("kaleyraVideoUtilsVersion", "2.0.1").apply { add(this) }
             val kaleyraVideoNetworkingVersion = Version("kaleyraVideoNetworkingVersion", "4.1.0").apply { add(this) }
             val kaleyraSocketIoVersion = Version("kaleyraSocketIoVersion", "2.0.1").apply { add(this) }
-            val kaleyraMaterialColorUtilitiesVersion = Version("kaleyraMaterialUtilitiesVersion", "2024.08.01").apply { add(this) }
+            val kaleyraMaterialColorUtilitiesVersion = Version("kaleyraMaterialColorUtilitiesVersion", "2024.08.01").apply { add(this) }
 
             libraries.apply {
                 println("Setting kaleyra dependency libraries...")
