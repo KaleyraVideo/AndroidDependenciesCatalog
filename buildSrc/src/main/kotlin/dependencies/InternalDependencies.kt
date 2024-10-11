@@ -17,7 +17,7 @@ object InternalDependencies : Dependencies {
             addAll(CommonDependencies.versions)
 
             // androidx versions
-            val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2024.08.00").apply { add(this) }
+            val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2024.09.03").apply { add(this) }
             val androidXActivityComposeVersion = Version("androidXActivityComposeVersion", "1.5.1").apply { add(this) }
             val androidxComposeConstraintLayoutVersion = Version("androidxComposeConstraintLayoutVersion", "1.0.1").apply { add(this) }
             val androidxStartupRuntimeVersion = Version("androidxStartupRuntimeversion", "1.1.1").apply { add(this) }
