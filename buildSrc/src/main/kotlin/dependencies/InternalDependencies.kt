@@ -20,15 +20,12 @@ object InternalDependencies : Dependencies {
             val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2024.08.00").apply { add(this) }
             val androidXActivityComposeVersion = Version("androidXActivityComposeVersion", "1.5.1").apply { add(this) }
             val androidxComposeConstraintLayoutVersion = Version("androidxComposeConstraintLayoutVersion", "1.0.1").apply { add(this) }
-            val androidxComposeUiTestJunit4Version = Version("androidxComposeUiTestJunit4Version", "1.4.3").apply { add(this) }
             val androidxStartupRuntimeVersion = Version("androidxStartupRuntimeversion", "1.1.1").apply { add(this) }
             val androidxDatabindingCommonVersion = Version("androidxDatabindingCommonVersion", "8.1.1").apply { add(this) }
             val androidxVectorDrawableVersion = Version("androidxVectorDrawableVersion", "1.1.0").apply { add(this) }
             val androidxRoomVersion = Version("androidxRoomVersion", "2.5.2").apply { add(this) }
             val androidxLifecycleVersion = Version("androidxLifecycleVersion", "2.6.2").apply { add(this) }
             val androidxArchCoreTestingVersion = Version("androidxArchCoreTestingVersion", "2.2.0").apply { add(this) }
-            val androidxComposeUiToolingVersion = Version("androidxComposeUiToolingVersion", "1.4.3").apply { add(this) }
-            val androidxComposeUiTestManifestVersion = Version("androidxComposeUiTestManifestVersion", "1.4.3").apply { add(this) }
 
             // jetbrains versions
             val jetbrainsDokkaVersion = Version("jetbrainsDokkaVersion", "1.9.0").apply { add(this) }
@@ -87,9 +84,6 @@ object InternalDependencies : Dependencies {
                 add(Library("androidXActivityCompose", "androidx.activity", "activity-compose", androidXActivityComposeVersion))
                 add(Library("androidxLifecycleProcess", "androidx.lifecycle", "lifecycle-process", androidxLifecycleVersion))
                 add(Library("androidxTestEspressoIntents", "androidx.test.espresso", "espresso-intents", androidxTestEspressoIntentsVersion))
-                add(Library("androidxComposeUiTooling", "androidx.compose.ui", "ui-tooling", androidxComposeUiToolingVersion))
-                add(Library("androidxComposeUiTestManifest", "androidx.compose.ui", "ui-test-manifest", androidxComposeUiTestManifestVersion))
-                add(Library("androidxComposeUiTestJunit4", "androidx.compose.ui", "ui-test-junit4", androidxComposeUiTestJunit4Version))
                 add(Library("androidxComposeConstraintLayout", "androidx.constraintlayout", "constraintlayout-compose", androidxComposeConstraintLayoutVersion))
 
                 // androidx
