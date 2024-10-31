@@ -20,7 +20,6 @@ object InternalDependencies : Dependencies {
             val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2024.09.03").apply { add(this) }
             val androidXActivityComposeVersion = Version("androidXActivityComposeVersion", "1.5.1").apply { add(this) }
             val androidxComposeConstraintLayoutVersion = Version("androidxComposeConstraintLayoutVersion", "1.0.1").apply { add(this) }
-            val androidxStartupRuntimeVersion = Version("androidxStartupRuntimeversion", "1.1.1").apply { add(this) }
             val androidxDatabindingCommonVersion = Version("androidxDatabindingCommonVersion", "8.1.1").apply { add(this) }
             val androidxVectorDrawableVersion = Version("androidxVectorDrawableVersion", "1.1.0").apply { add(this) }
             val androidxRoomVersion = Version("androidxRoomVersion", "2.5.2").apply { add(this) }
@@ -87,7 +86,6 @@ object InternalDependencies : Dependencies {
                 add(Library("androidxComposeConstraintLayout", "androidx.constraintlayout", "constraintlayout-compose", androidxComposeConstraintLayoutVersion))
 
                 // androidx
-                add(Library("androidxStartupRuntime", "androidx.startup", "startup-runtime", androidxStartupRuntimeVersion))
                 add(Library("androidxLifecycleExtensions", "androidx.lifecycle", "lifecycle-livedata-ktx", androidxLifecycleVersion))
                 add(Library("androidxDataBindingCommon", "androidx.databinding", "databinding-common", androidxDatabindingCommonVersion))
                 add(Library("androidxVectorDrawable", "androidx.vectordrawable", "vectordrawable", androidxVectorDrawableVersion))
