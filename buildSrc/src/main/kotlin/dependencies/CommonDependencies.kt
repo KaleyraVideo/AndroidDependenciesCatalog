@@ -25,7 +25,7 @@ object CommonDependencies: Dependencies {
 
             // jetbrains versions
             val jetbrainsKotlinVersion = Version("jetbrainsKotlinVersion", "1.9.0").apply { add(this) }
-            val jetbrainsCoroutinesVersion = Version("jetbrainsCoroutinesVersion", "1.7.3").apply { add(this) }
+            val jetbrainsCoroutinesVersion = Version("jetbrainsCoroutinesVersion", "1.8.0").apply { add(this) }
             val jetbrainsKotlinxSerializationJsonVersion = Version("jetbrainsKotlinxSerializationJsonVersion", "1.6.0").apply { add(this) }
 
             // google
@@ -50,7 +50,7 @@ object CommonDependencies: Dependencies {
             val junitVersion = Version("junitVersion", "4.13.2").apply { add(this) }
             val junitTestExtVersion = Version("junitTestExtVersion", "1.1.5").apply { add(this) }
             val mockkVersion = Version("mockkVersion", "1.13.1").apply { add(this) }
-            val coroutinesTestVersion = Version("coroutinesTestVersion", "1.7.3").apply { add(this) }
+            val coroutinesTestVersion = Version("coroutinesTestVersion", "1.8.0").apply { add(this) }
             val androidxTestEspressoCoreVersion = Version("androidxTestEspressoCoreVersion", "3.5.1").apply { add(this) }
             val javaassistVersion = Version("javaassistVersion", "3.29.2-GA").apply { add(this) }
             val androidxTestRunnerVersion = Version("androidxTestRunnerVersion", "1.5.2").apply { add(this) }
