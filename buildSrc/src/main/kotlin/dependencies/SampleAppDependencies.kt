@@ -40,7 +40,7 @@ object SampleAppDependencies : Dependencies {
             val ktorVersion = Version("ktorVersion", "2.3.4").apply { add(this) }
 
             // facebook
-            val facebookFlipperVersion = Version("facebookFlipperVersion", "0.137.0").apply { add(this) }
+            val facebookFlipperVersion = Version("facebookFlipperVersion", "0.273.0").apply { add(this) }
             val facebookSoloaderVersion = Version("facebookSoloaderVersion", "0.10.5").apply { add(this) }
             val facebookStethoVersion = Version("facebookStethoVersion", "1.6.0").apply { add(this) }
 
