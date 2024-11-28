@@ -66,9 +66,8 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: gradle
-      - name: Setup android sdk
-        if: ${{ env.ACT }} # Only run on local act setups, as GitHub Actions provides the Android SDK on Ubuntu
-        uses: android-actions/setup-android@v2
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Generate catalog tomls
