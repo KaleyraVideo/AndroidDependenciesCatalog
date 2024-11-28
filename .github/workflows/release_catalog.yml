@@ -29,8 +29,29 @@ on:
         required: true
       
 jobs:
-  clean_build:
+  determine-runner-integration:
+    name: Determine which runner to use for integration tests
     runs-on: ubuntu-latest
+    outputs:
+      runner: ${{ steps.set-runner.outputs.runner }}
+    steps:
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Determine which runner to use
+        id: set-runner
+        uses: benjaminmichaelis/get-soonest-available-runner@v1.1.0
+        with:
+          primary-runner: "self-hosted"
+          fallback-runner: "ubuntu-latest"
+          min-available-runners: 1
+          github-token: ${{steps.generate_token.outputs.token}}
+  clean_build:
+    needs: determine-runner-integration
+    runs-on: ${{ needs.determine-runner-integration.outputs.runner }}
     environment:
       name: release_environment
     steps:
@@ -55,8 +76,8 @@ jobs:
       - name: Build module
         run: ./gradlew clean build
   update_catalog_version:
-    runs-on: ubuntu-latest
-    needs: clean_build
+    needs: [ determine-runner-integration, clean_build ]
+    runs-on: ${{ needs.determine-runner-integration.outputs.runner }}
     steps:
       - uses: actions/checkout@v2
         with:
