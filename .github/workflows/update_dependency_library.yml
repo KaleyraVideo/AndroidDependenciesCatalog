@@ -66,8 +66,7 @@ jobs:
           distribution: 'adopt'
           cache: gradle
       - name: Setup android sdk
-        if: ${{ env.ACT }} # Only run on local act setups, as GitHub Actions provides the Android SDK on Ubuntu
-        uses: android-actions/setup-android@v2
+        uses: android-actions/setup-android@v3
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build module
@@ -83,6 +82,8 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: gradle
+      - name: Setup android sdk
+        uses: android-actions/setup-android@v3
       - name: Update kaleyra dependency library version
         run: ./gradlew updateKaleyraLibVersion -PkaleyraLibName=${{ inputs.library_name }} -PkaleyraLibVersion=${{ inputs.library_version }}
       - uses: stefanzweifel/git-auto-commit-action@v5
