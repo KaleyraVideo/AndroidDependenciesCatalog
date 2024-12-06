@@ -28,8 +28,7 @@ on:
 jobs:
   determine-runner-integration:
     name: Determine which runner to use for integration tests
-    needs: determine-runner-integration
-    runs-on: ${{ needs.determine-runner-integration.outputs.runner }}
+    runs-on: ubuntu-latest
     outputs:
       runner: ${{ steps.set-runner.outputs.runner }}
     steps:
