@@ -62,6 +62,7 @@ object SampleAppDependencies : Dependencies {
             val zxingVersion = Version("zxingVersion", "3.5.2").apply { add(this) }
             val materialExpansionPanel = Version("materialExpansionPanel", "2.1.7").apply { add(this) }
             val processPhoenixVersion = Version("processPhoenixVersion", "2.1.2").apply { add(this) }
+            val colorPickerVersion = Version("colorPickerVersion", "0.6.2").apply { add(this) }
 
             // common
             val sampleAppMinSdkVersion = Version("sampleAppMinSdkVersion", "21").apply { add(this) }
@@ -132,6 +133,7 @@ object SampleAppDependencies : Dependencies {
                 add(Library("zxing", "com.google.zxing", "core", zxingVersion))
                 add(Library("materialExpansionPanel", "com.robertlevonyan.view", "MaterialExpansionPanel", materialExpansionPanel))
                 add(Library("processPhoenix", "com.jakewharton", "process-phoenix", processPhoenixVersion))
+                add(Library("colorPicker", "com.side", "andcolorpicker", colorPickerVersion))
 
                 // kaleyra libraries
                 add(Library("kaleyraFlipperSocketIo", "com.bandyer.flipper", "flipper-socket-io-plugin", bandyerFlipperSocketIoVersion))
