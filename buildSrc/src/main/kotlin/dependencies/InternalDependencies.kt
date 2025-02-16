@@ -17,7 +17,6 @@ object InternalDependencies : Dependencies {
             addAll(CommonDependencies.versions)
 
             // androidx versions
-            val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2024.09.03").apply { add(this) }
             val androidXActivityComposeVersion = Version("androidXActivityComposeVersion", "1.5.1").apply { add(this) }
             val androidxComposeConstraintLayoutVersion = Version("androidxComposeConstraintLayoutVersion", "1.0.1").apply { add(this) }
             val androidxDatabindingCommonVersion = Version("androidxDatabindingCommonVersion", "8.1.1").apply { add(this) }
@@ -79,7 +78,6 @@ object InternalDependencies : Dependencies {
                 addAll(CommonDependencies.libraries)
 
                 // new-compose
-                add(Library("androidxComposeBom", "androidx.compose", "compose-bom", androidxComposeBomVersion))
                 add(Library("androidXActivityCompose", "androidx.activity", "activity-compose", androidXActivityComposeVersion))
                 add(Library("androidxLifecycleProcess", "androidx.lifecycle", "lifecycle-process", androidxLifecycleVersion))
                 add(Library("androidxTestEspressoIntents", "androidx.test.espresso", "espresso-intents", androidxTestEspressoIntentsVersion))

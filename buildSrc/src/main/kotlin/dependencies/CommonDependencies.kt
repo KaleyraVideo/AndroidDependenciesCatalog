@@ -22,6 +22,7 @@ object CommonDependencies: Dependencies {
             val androidxConstraintLayoutVersion = Version("androidxConstraintLayoutVersion", "2.1.4").apply { add(this) }
             val androidxNavigationKtxVersion = Version("androidxNavigationKtxVersion", "2.6.0").apply { add(this) }
             val androidxStartupRuntimeVersion = Version("androidxStartupRuntimeversion", "1.1.1").apply { add(this) }
+            val androidxComposeBomVersion = Version("androidxComposeBomVersion", "2024.09.03").apply { add(this) }
 
             // jetbrains versions
             val jetbrainsKotlinVersion = Version("jetbrainsKotlinVersion", "1.9.0").apply { add(this) }
@@ -81,6 +82,7 @@ object CommonDependencies: Dependencies {
                 add(Library("androidxNavigationUiKtx", "androidx.navigation", "navigation-ui-ktx", androidxNavigationKtxVersion))
                 add(Library("androidxConstraintLayout", "androidx.constraintlayout", "constraintlayout", androidxConstraintLayoutVersion))
                 add(Library("androidxStartupRuntime", "androidx.startup", "startup-runtime", androidxStartupRuntimeVersion))
+                add(Library("androidxComposeBom", "androidx.compose", "compose-bom", androidxComposeBomVersion))
 
                 // jetbrains
                 add(Library("coroutines", "org.jetbrains.kotlinx", "kotlinx-coroutines-core", jetbrainsCoroutinesVersion))
