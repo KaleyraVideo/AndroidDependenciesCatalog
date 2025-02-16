@@ -133,7 +133,7 @@ object SampleAppDependencies : Dependencies {
                 add(Library("zxing", "com.google.zxing", "core", zxingVersion))
                 add(Library("materialExpansionPanel", "com.robertlevonyan.view", "MaterialExpansionPanel", materialExpansionPanel))
                 add(Library("processPhoenix", "com.jakewharton", "process-phoenix", processPhoenixVersion))
-                add(Library("colorPicker", "com.side", "andcolorpicker", colorPickerVersion))
+                add(Library("colorPicker", "codes.side", "andcolorpicker", colorPickerVersion))
 
                 // kaleyra libraries
                 add(Library("kaleyraFlipperSocketIo", "com.bandyer.flipper", "flipper-socket-io-plugin", bandyerFlipperSocketIoVersion))
