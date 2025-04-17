@@ -55,19 +55,20 @@ jobs:
     environment:
       name: release_environment
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
           ref: 'main'
       - name: set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: gradle
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Generate catalog tomls
@@ -78,18 +79,17 @@ jobs:
     needs: [ determine-runner-integration, clean_build ]
     runs-on: ${{ needs.determine-runner-integration.outputs.runner }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
           ref: 'main'
       - name: set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: gradle
-      - name: add python dependecy
+      - name: add python dependency
         run: python3 -m pip install semver boto3
       - name: Update specific catalog version
         id: output_specific_tag
