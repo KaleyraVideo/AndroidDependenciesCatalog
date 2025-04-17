@@ -52,7 +52,7 @@ object KaleyraDependencies : Dependencies {
                 add(Library("kaleyraVideoCoreAvExtensionExternalCamera", "com.kaleyra", "video-extension-external-camera", kaleyraVideoCoreAvVersion))
                 add(Library("kaleyraVideoCoreAvExtensionVirtualBackground", "com.kaleyra", "video-extension-virtual-background", kaleyraVideoCoreAvVersion))
                 add(Library("kaleyraMaterialColorUtilities", "com.kaleyra", "material-color-utilities", kaleyraMaterialColorUtilitiesVersion))
-                add(Library("kaleyraAndroidDeepFilterNet", "io.github", "android-deepfilternet", kaleyraAndroidDeepFilterNetVersion))
+                add(Library("kaleyraAndroidDeepFilterNet", "io.github.kaleyravideo", "android-deepfilternet", kaleyraAndroidDeepFilterNetVersion))
             }
         }
         println("Version catalog for internal kaleyra dependencies is ready...")
