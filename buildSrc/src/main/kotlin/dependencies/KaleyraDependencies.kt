@@ -31,6 +31,7 @@ object KaleyraDependencies : Dependencies {
             val kaleyraVideoNetworkingVersion = Version("kaleyraVideoNetworkingVersion", "4.1.0").apply { add(this) }
             val kaleyraSocketIoVersion = Version("kaleyraSocketIoVersion", "2.0.1").apply { add(this) }
             val kaleyraMaterialColorUtilitiesVersion = Version("kaleyraMaterialColorUtilitiesVersion", "2024.08.01").apply { add(this) }
+            val kaleyraAndroidDeepFilterNetVersion = Version("kaleyraAndroidDeepFilterNetVersion", "0.0.1").apply { add(this) }
 
             libraries.apply {
                 println("Setting kaleyra dependency libraries...")
@@ -51,6 +52,7 @@ object KaleyraDependencies : Dependencies {
                 add(Library("kaleyraVideoCoreAvExtensionExternalCamera", "com.kaleyra", "video-extension-external-camera", kaleyraVideoCoreAvVersion))
                 add(Library("kaleyraVideoCoreAvExtensionVirtualBackground", "com.kaleyra", "video-extension-virtual-background", kaleyraVideoCoreAvVersion))
                 add(Library("kaleyraMaterialColorUtilities", "com.kaleyra", "material-color-utilities", kaleyraMaterialColorUtilitiesVersion))
+                add(Library("kaleyraAndroidDeepFilterNet", "io.github", "android-deepfilternet", kaleyraAndroidDeepFilterNetVersion))
             }
         }
         println("Version catalog for internal kaleyra dependencies is ready...")
