@@ -60,11 +60,11 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
           ref: 'main'
-      - name: Set up JDK 17
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'adopt'
+          java-version-file: .github/.java-version
+          distribution: 'temurin'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
       - name: Setup Gradle
@@ -84,11 +84,11 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
           ref: 'main'
-      - name: set up JDK 17
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'adopt'
+          java-version-file: .github/.java-version
+          distribution: 'temurin'
       - name: add python dependency
         run: python3 -m pip install semver boto3
       - name: Update specific catalog version
