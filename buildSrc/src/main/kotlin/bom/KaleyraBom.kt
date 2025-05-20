@@ -21,6 +21,7 @@ object KaleyraBom: Bom {
 
             add(Library("kaleyraVideoExtensionExternalCamera", "com.kaleyra", "video-extension-external-camera", Version("kaleyraVideoExtensionExternalCamera", kaleyraVideoExtensionsVersion)))
             add(Library("kaleyraVideoExtensionNoiseFilter", "com.kaleyra", "video-extension-noise-filter", Version("kaleyraVideoExtensionNoiseFilter", kaleyraVideoExtensionsVersion)))
+            add(Library("kaleyraVideoExtensionNoiseFilter", "com.kaleyra", "video-extension-noise-filter-lazymodel", Version("kaleyraVideoExtensionNoiseFilter", kaleyraVideoExtensionsVersion)))
         }
     }
 }
