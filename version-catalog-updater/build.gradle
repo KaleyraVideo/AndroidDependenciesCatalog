@@ -50,7 +50,7 @@ android {
 
 dependencies { dependencyHandler ->
 
-    List<String> skipPackages = Arrays.asList(new String[] { "detekt", "flipper", "awaitility", "test" })
+    List<String> skipPackages = Arrays.asList(new String[] { "detekt", "flipper", "awaitility", "test", "android-deepfilternet" })
 
     if ((new File("video-sdk-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
         println("Implementing all libraries defined in videoSdkVersionCatalog...")
