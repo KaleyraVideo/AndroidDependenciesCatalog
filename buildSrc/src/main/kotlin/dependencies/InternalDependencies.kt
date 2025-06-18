@@ -62,6 +62,7 @@ object InternalDependencies : Dependencies {
             val proguardVersion = Version("proguardVersion", "7.3.1").apply { add(this) }
             val ktlintVersion = Version("ktlintVersion", "0.50.0").apply { add(this) }
             val kotlinCompilerExtensionVersion = Version("kotlinCompilerExtensionVersion", "1.5.2").apply { add(this) }
+            val ndkVersion = Version("ndkVersion", "28.1.13356709").apply { add(this) }
 
             // plugins
             val licenseReportVersion = Version("licenseReportVersion", "2.5").apply { add(this) }
