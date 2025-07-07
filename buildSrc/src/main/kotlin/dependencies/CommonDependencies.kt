@@ -58,7 +58,7 @@ object CommonDependencies: Dependencies {
             val awaitilityKotlinVersion = Version("awaitilityKotlinVersion", "3.1.6").apply { add(this) }
 
             // common
-            val gradleVersion = Version("gradleVersion", "8.1.1").apply { add(this) }
+            val gradleVersion = Version("gradleVersion", "8.6.1").apply { add(this) }
 
             // plugins
             val kotlinxSerializationVersion = Version("kotlinxSerializationVersion", "1.9.0").apply { add(this) }

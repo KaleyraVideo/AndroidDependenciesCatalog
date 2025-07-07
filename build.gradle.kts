@@ -6,9 +6,9 @@
 plugins {
     id("com.github.ben-manes.versions") version ("0.48.0")
     id("nl.littlerobots.version-catalog-update") version ("0.8.1")
-    id("com.android.application") version "8.1.1" apply false
+    id("com.android.application") version "8.6.1" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
-    id("com.android.library") version "7.3.1" apply false
+    id("com.android.library") version "8.6.1" apply false
 }
 
 buildscript {
@@ -24,7 +24,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle:8.6.1")
     }
 }
 
