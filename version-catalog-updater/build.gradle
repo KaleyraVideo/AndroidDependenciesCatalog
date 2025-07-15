@@ -27,7 +27,6 @@ android {
         }
     }
     compileOptions {
-        coreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -51,9 +50,7 @@ android {
 
 dependencies { dependencyHandler ->
 
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.1.5"
-
-    List<String> skipPackages = Arrays.asList(new String[] { "detekt", "flipper", "awaitility", "test", "android-deepfilternet" })
+    List<String> skipPackages = Arrays.asList(new String[] { "detekt", "flipper", "awaitility", "test", "android-deepfilternet", "desugar" })
 
     if ((new File("video-sdk-version-catalog/build/version-catalog/libs.versions.toml").exists())) {
         println("Implementing all libraries defined in videoSdkVersionCatalog...")
