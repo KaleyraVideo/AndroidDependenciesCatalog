@@ -32,7 +32,7 @@ object CommonDependencies: Dependencies {
             // google
             val googleMaterialVersion = Version("googleMaterialVersion", "1.7.0").apply { add(this) }
             val googleGsonVersion = Version("googleGsonVersion", "2.9.0").apply { add(this) }
-            val googleDesugarVersion = Version("googleDesugarVersion", "1.1.5").apply { add(this) }
+            val googleDesugarVersion = Version("googleDesugarVersion", "2.1.5").apply { add(this) }
 
             // squareup
             val squareOkhttpVersion = Version("squareupOkhttpVersion", "4.10.0").apply { add(this) }
