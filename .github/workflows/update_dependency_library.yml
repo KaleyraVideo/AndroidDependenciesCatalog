@@ -29,6 +29,7 @@ on:
         - kaleyraVideoNetworkingVersion
         - kaleyraSocketIoVersion
         - kaleyraAndroidDeepFilterNetVersion
+        - kaleyraMaterialColorUtilitiesVersion
         required: true
       library_version:
         description: Define the kaleyra library version that needs to be updated
