@@ -30,7 +30,7 @@ object KaleyraDependencies : Dependencies {
             val kaleyraVideoUtilsVersion = Version("kaleyraVideoUtilsVersion", "2.1.0").apply { add(this) }
             val kaleyraVideoNetworkingVersion = Version("kaleyraVideoNetworkingVersion", "4.1.0").apply { add(this) }
             val kaleyraSocketIoVersion = Version("kaleyraSocketIoVersion", "2.0.1").apply { add(this) }
-            val kaleyraMaterialColorUtilitiesVersion = Version("kaleyraMaterialColorUtilitiesVersion", "2025.07.00").apply { add(this) }
+            val kaleyraMaterialColorUtilitiesVersion = Version("kaleyraMaterialColorUtilitiesVersion", "2025.07.01").apply { add(this) }
             val kaleyraAndroidDeepFilterNetVersion = Version("kaleyraAndroidDeepFilterNetVersion", "0.0.8").apply { add(this) }
 
             libraries.apply {
